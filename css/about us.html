@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hebei Xiongan Jietong Innovation Technology Co., Ltd.</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            font-family: "Microsoft YaHei", sans-serif;
+            background-color: #F5F0E1;
+            color: #5F2600;
+            padding-top: 70px;
+        }
+
+        header {
+            background-color: #A6655B;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            height: 70px;
+            display: flex;
+            align-items: center;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            width: 100%;
+            height: 100%;
+        }
+
+        .logo img {
+            height: 40px;
+            width: auto;
+            display: block;
+            margin: auto 0;
+        }
+
+        .desktop-nav {
+            display: flex;
+            align-items: center;
+            height: 100%;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin-left: 30px;
+            position: relative;
+            padding: 5px 0;
+            display: flex;
+            align-items: center;
+            height: 100%;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #000000;
+            font-weight: 700;
+            font-size: 25px;
+            transition: color 0.3s ease;
+            display: block;
+            padding: 5px 0;
+            line-height: 1;
+        }
+
+        nav ul li a:hover {
+            color: #4257E7;
+        }
+
+        .dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+            width: 220px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(5px);
+            transition: 
+                opacity 0.3s ease-in-out,
+                visibility 0.3s ease-in-out,
+                transform 0.3s ease-in-out;
+            z-index: 9999;
+            padding: 8px 0;
+            display: flex;
+            flex-direction: column;
+            pointer-events: none;
+        }
+
+        .dropdown li {
+            margin: 0 !important;
+            padding: 0 !important;
+            width: 100%;
+            list-style: none;
+        }
+
+        .dropdown li a {
+            font-size: 18px !important;
+            color: #5F2600;
+            padding: 10px 20px !important;
+            white-space: nowrap;
+            width: 100%;
+            box-sizing: border-box;
+            font-weight: 500;
+            border-radius: 0;
+        }
+
+        .dropdown li a:hover {
+            background-color: #F5F0E1;
+            color: #4257E7;
+            border-radius: 0;
+        }
+
+        nav ul li:hover .dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+
+        .lang-switch {
+            margin-left: 15px;
+            background: none;
+            border: 1px solid #5F2600;
+            padding: 5px 10px;
+            font-size: 16px;
+            cursor: pointer;
+            color: #5F2600;
+            font-weight: bold;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 30px;
+        }
+        
+        .lang-switch:hover,
+        .lang-switch.active {
+            background-color: #4257E7;
+            color: white;
+            border-color: #4257E7;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 21px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            z-index: 1001;
+        }
+
+        .hamburger span {
+            display: block;
+            height: 3px;
+            width: 100%;
+            background-color: #000;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 70px;
+            left: 0;
+            width: 100%;
+            height: calc(100vh - 70px);
+            background-color: #fff;
+            z-index: 999;
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            overflow-y: auto;
+        }
+
+        .mobile-menu .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 28px;
+            background: none;
+            border: none;
+            color: #5F2600;
+            cursor: pointer;
+        }
+
+        .mobile-menu ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: block;
+        }
+
+        .mobile-menu ul li {
+            margin: 12px 0;
+            padding: 0;
+            height: auto;
+        }
+
+        .mobile-menu ul li a {
+            text-decoration: none;
+            color: #5F2600;
+            font-size: 20px;
+            font-weight: 700;
+            display: block;
+            padding: 8px 0;
+        }
+
+        .mobile-menu .mobile-dropdown {
+            padding-left: 20px;
+            margin-top: 5px;
+            display: block;
+        }
+
+        .mobile-menu .mobile-dropdown li {
+            margin: 8px 0;
+        }
+
+        .mobile-menu .mobile-dropdown li a {
+            font-size: 18px;
+            font-weight: 500;
+        }
+
+        .mobile-lang {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        footer {
+            background-color: #111;
+            color: #F5F0E1;
+            padding: 30px 20px;
+            border-radius: 10px 10px 0 0;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-logo-icon {
+            width: 40px;
+            height: 40px;
+            background-color: #F5F0E1;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #5F2600;
+            font-size: 18px;
+            margin-right: 15px;
+        }
+
+        .footer-logo-text {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .footer-links ul {
+            display: flex;
+            list-style: none;
+        }
+
+        .footer-links ul li {
+            margin-left: 20px;
+        }
+
+        .footer-links ul li a {
+            text-decoration: none;
+            color: #F5F0E1;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links ul li a:hover {
+            color:#4257E7;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 14px;
+            opacity: 0.7;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .about-section {
+            max-width: 1200px;
+            margin: 80px auto;
+            padding: 0 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+
+        .video-container,
+        .text-container {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-top: 33%;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .video-container video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+        }
+
+        .video-cover {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 10;
+            transition: opacity 0.3s ease;
+            background-color: #f5f0e1;
+        }
+
+        .video-cover-img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .play-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60px;
+            height: 60px;
+            background-color: rgba(95, 38, 0, 0.7);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 20;
+            transition: all 0.3s ease;
+        }
+
+        .play-btn i {
+            color: #F5F0E1;
+            font-size: 24px;
+            margin-left: 3px;
+        }
+
+        .video-container:hover .play-btn {
+            transform: translate(-50%, -50%) scale(1.1);
+            background-color: rgba(166, 101, 91, 0.8);
+        }
+
+        .text-container h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #5F2600;
+        }
+
+        .text-container p {
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            color: #5F2600;
+        }
+
+        .feature-section {
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .feature-box {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .feature-title {
+            font-size: 18px;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 10px;
+            color: #5F2600;
+        }
+
+        .feature-description {
+            font-size: 14px;
+            color: #5F2600;
+            line-height: 1.5;
+        }
+
+        .feature-icon {
+            margin-top: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 50px;
+        }
+
+        .feature-icon i {
+            font-size: 40px;
+            color: #5F2600;
+        }
+
+        .certificate-section {
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+        
+        .certificate-container h3 {
+            font-size: 24px;
+            color: #5F2600;
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
+        
+        .certificate-img-box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .certificate-img {
+            max-width: 80%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(95, 38, 0, 0.15);
+            transition: transform 0.3s ease;
+        }
+        
+        .certificate-img:hover {
+            transform: scale(1.02);
+        }
+        
+        .factory-section {
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+        
+        .factory-container h3 {
+            font-size: 24px;
+            color: #5F2600;
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
+        
+        .factory-gallery {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        
+        .gallery-img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-img:hover {
+            transform: scale(1.02);
+        }
+
+        .core-advantages-section {
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+        
+        .core-advantages-container h3 {
+            font-size: 24px;
+            color: #5F2600;
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
+        
+        .advantages-img-box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .advantages-img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(95, 38, 0, 0.15);
+            transition: transform 0.3s ease;
+        }
+        
+        .advantages-img:hover {
+            transform: scale(1.02);
+        }
+
+        #companyVideo:not(.active)::-webkit-media-controls {
+            display: none !important;
+        }
+        #companyVideo:not(.active) {
+            pointer-events: none;
+        }
+
+        @media (max-width: 768px) {
+            .desktop-nav {
+                display: none !important;
+            }
+            
+            .hamburger {
+                display: flex;
+            }
+
+            .mobile-menu.active {
+                display: block;
+            }
+
+            body.menu-open {
+                overflow: hidden;
+                padding-top: 0;
+            }
+
+            nav ul li {
+                margin-left: 15px;
+            }
+            
+            nav ul li a {
+                font-size: 20px !important;
+            }
+            
+            nav ul li .dropdown {
+                display: none !important;
+            }
+
+            .about-section {
+                flex-direction: column;
+            }
+
+            .feature-section {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+
+            .play-btn {
+                width: 40px;
+                height: 40px;
+            }
+
+            .play-btn i {
+                font-size: 18px;
+            }
+
+            .certificate-img {
+                max-width: 100%;
+            }
+            
+            .certificate-container h3 {
+                font-size: 20px;
+            }
+
+            .core-advantages-container h3 {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="header-container">
+        <a href="./首页.html" class="logo">
+          <img src="../img/网站logo.png" alt="Jietong">
+        </a>
+
+        <button class="hamburger" id="hamburgerBtn" aria-label="Toggle navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <div class="desktop-nav">
+            <nav>
+                <ul>
+                    <li>
+                        <a href="./首页.html" data-lang-en="Home" data-lang-zh="首页">Home</a>
+                    </li>
+                    <li>
+                        <a href="./首页.html#products" data-lang-en="Products" data-lang-zh="产品">Products</a>
+                        <ul class="dropdown">
+                          <li><a href="棒球帽.html" data-lang-en="Baseball Cap" data-lang-zh="棒球帽">Baseball Cap</a></li>
+                          <li><a href="平舌帽.html" data-lang-en="Snapback Cap" data-lang-zh="平舌帽">Snapback Cap</a></li>
+						  <li><a href="速干帽.html" data-lang-en="Quick-dry Cap" data-lang-zh="速干帽">Quick-dry Cap</a></li>
+                          <li><a href="露营帽.html" data-lang-en="Camping Cap" data-lang-zh="露营帽">Camping Cap</a></li>
+                          <li><a href="卡车司机帽.html" data-lang-en="Trucker Cap" data-lang-zh="卡车司机帽">Trucker Cap</a></li>
+                          <li><a href="渔夫帽.html" data-lang-en="Bucket Cap" data-lang-zh="渔夫帽">Bucket Cap</a></li>
+                          <li><a href="针织帽.html" data-lang-en="Knitted Cap" data-lang-zh="针织帽">Knitted Cap</a></li>
+                          <li><a href="衣服.html" data-lang-en="Clothes" data-lang-zh="衣服">Clothes</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="custom.html" data-lang-en="Custom" data-lang-zh="定制流程">Custom</a></li>
+					<li><a href="资讯.html" data-lang-en="News" data-lang-zh="资讯">News</a></li>
+                    <li><a href="about us.html" data-lang-en="About Us" data-lang-zh="关于我们">About us</a></li>
+                </ul>
+            </nav>
+            <button class="lang-switch" id="langToggle">EN</button>
+        </div>
+
+        <div class="mobile-menu" id="mobileMenu">
+            <button class="close-btn" id="closeMobileMenu">&times;</button>
+            <ul>
+                <li><a href="./首页.html" data-lang-en="Home" data-lang-zh="首页">Home</a></li>
+                <li>
+                    <a href="./首页.html#products" data-lang-en="Products" data-lang-zh="产品">Products</a>
+                    <ul class="mobile-dropdown">
+                        <li><a href="棒球帽.html" data-lang-en="Baseball Cap" data-lang-zh="棒球帽">Baseball Cap</a></li>
+                        <li><a href="平舌帽.html" data-lang-en="Snapback Cap" data-lang-zh="平舌帽">Snapback Cap</a></li>
+                        <li><a href="速干帽.html" data-lang-en="Quick-dry Cap" data-lang-zh="速干帽">Quick-dry Cap</a></li>
+                        <li><a href="露营帽.html" data-lang-en="Camping Cap" data-lang-zh="露营帽">Camping Cap</a></li>
+                        <li><a href="卡车司机帽.html" data-lang-en="Trucker Cap" data-lang-zh="卡车司机帽">Trucker Cap</a></li>
+                        <li><a href="渔夫帽.html" data-lang-en="Bucket Cap" data-lang-zh="渔夫帽">Bucket Cap</a></li>
+                        <li><a href="针织帽.html" data-lang-en="Knitted Cap" data-lang-zh="针织帽">Knitted Cap</a></li>
+                        <li><a href="衣服.html" data-lang-en="Clothes" data-lang-zh="衣服">Clothes</a></li>
+                    </ul>
+                </li>
+                <li><a href="custom.html" data-lang-en="Custom" data-lang-zh="定制流程">Custom</a></li>
+                <li><a href="资讯.html" data-lang-en="News" data-lang-zh="资讯">News</a></li>
+                <li><a href="about us.html" data-lang-en="About Us" data-lang-zh="关于我们">About us</a></li>
+            </ul>
+            <div class="mobile-lang">
+                <button class="lang-switch" id="mobileLangToggle">EN</button>
+            </div>
+        </div>
+    </div>
+</header>
+
+<section class="about-section">
+    <div class="video-container" id="videoWrapper">
+        <video id="companyVideo" controls preload="metadata">
+            <source src="../img/网站视频.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
+        <div class="video-cover" id="videoCover">
+            <img src="../img/封面.png" class="video-cover-img" id="videoCoverImg" alt="视频封面">
+        </div>
+        <div class="play-btn" id="playBtn">
+            <i class="ri-play-line"></i>
+        </div>
+    </div>
+    <div class="text-container">
+        <h2 data-lang-en="About Us" data-lang-zh="关于我们"></h2>
+        <p data-lang-en="Hebei Xiongan Jietong Innovation Technology Co., Ltd. is located in Xiongan New Area, Hebei Province, near Beijing and Tianjin, with convenient transportation. Our company has independent import and export rights. The production line is equipped with imported embroidery machine, sewing machine, ironing machine and other special hat-making equipment, strong technical force. We produce hundreds of styles of hats and clothing, and our products are exported to the United States, Europe, Canada, Australia, the Middle East and other countries and regions. We have won the trust and praise of our customers with high quality products and high delivery rate. In the future, we will be committed to providing sustainable solutions for global e-commerce enterprises and brands."
+           data-lang-zh="河北雄安捷通创新科技有限公司位于河北省雄安新区，毗邻北京、天津，交通便利。公司拥有独立的进出口权，生产线配备进口刺绣机、缝纫机、熨烫机等专业制帽设备，技术力量雄厚。我们生产数百款帽子和服装，产品出口至美国、欧洲、加拿大、澳大利亚、中东等国家和地区。我们凭借高质量的产品和高交付率赢得了客户的信任和赞誉。未来，我们将致力于为全球电商企业和品牌提供可持续的解决方案。">
+        </p>
+    </div>
+</section>
+
+<div class="feature-section">
+    <div class="feature-box">
+        <div class="feature-content">
+            <span class="feature-title" data-lang-en="EXPORT EXPERIENCE" data-lang-zh="出口经验"></span>
+            <p class="feature-description" data-lang-en="We are professional custom hats technical process factory that certified by Alibaba and trade for more than 20 years."
+               data-lang-zh="我们是经阿里巴巴认证的专业定制帽子的技术工厂，贸易经验超过20年。">
+            </p>
+        </div>
+    </div>
+    <div class="feature-box">
+        <div class="feature-content">
+            <span class="feature-title" data-lang-en="FACTORY DIRECT SALE" data-lang-zh="工厂直销"></span>
+            <p class="feature-description" data-lang-en="We have our own mill so that we can offer you the products with high quality and competitive prices."
+               data-lang-zh="我们拥有自己的工厂，能为您提供高质量、有竞争力价格的产品。">
+            </p>
+        </div>
+    </div>
+    <div class="feature-box">
+        <div class="feature-content">
+            <span class="feature-title" data-lang-en="CUSTOMIZED SERVICE" data-lang-zh="定制服务"></span>
+            <p class="feature-description" data-lang-en="We can provide customized service according to your needs."
+               data-lang-zh="我们可根据您的需求提供定制服务。">
+            </p>
+        </div>
+    </div>
+    <div class="feature-box">
+        <div class="feature-content">
+            <span class="feature-title" data-lang-en="PROFESSIONAL EQUIPMENT" data-lang-zh="专业设备"></span>
+            <p class="feature-description" data-lang-en="We have professional imported embroidery machines, sewing machines, ironing machines and other professional hat making production equipment"
+               data-lang-zh="我们拥有专业的进口刺绣机，缝纫机，熨烫机等专业制帽生产设备。">
+            </p>
+        </div>
+    </div>
+    <div class="feature-box">
+        <div class="feature-icon">
+            <i class="ri-global-line"></i>
+        </div>
+    </div>
+    <div class="feature-box">
+        <div class="feature-icon">
+            <i class="ri-building-line"></i>
+        </div>
+    </div>
+    <div class="feature-box">
+        <div class="feature-icon">
+            <i class="ri-edit-box-line"></i>
+        </div>
+    </div>
+    <div class="feature-box">
+        <div class="feature-icon">
+            <i class="ri-tools-line"></i>
+        </div>
+    </div>
+</div>
+
+<section class="certificate-section">
+    <div class="certificate-container">
+        <h3 data-lang-en="Certifications" data-lang-zh="企业证书"></h3>
+        <div class="certificate-img-box">
+            <img src="../img/证书1.png" alt="企业资质证书" class="certificate-img">
+        </div>
+    </div>
+</section>
+
+<section class="factory-section">
+    <div class="factory-container">
+        <h3 data-lang-en="Factory Overview" data-lang-zh="工厂实景"></h3>
+        <div class="factory-gallery">
+            <img src="../img/工厂.png" alt="Factory Gallery" class="gallery-img" style="width: 100%; max-width: 1200px; height: auto;">
+        </div>
+    </div>
+</section>
+
+<section class="core-advantages-section">
+    <div class="core-advantages-container">
+        <h3 data-lang-en="Core Advantages" data-lang-zh="核心优势"></h3>
+        <div class="advantages-img-box">
+            <img src="../img/定制.png" alt="Core Advantages Illustration" class="advantages-img">
+        </div>
+    </div>
+</section>
+
+<footer id="contact">
+  <div class="footer-content">
+    <div class="footer-logo">
+      <a href="./首页.html" style="text-decoration: none; color: inherit;">
+        <div class="footer-logo-text" data-lang-en="Jietong" data-lang-zh="捷通">Jietong</div>
+      </a>
+    </div>
+    <div class="footer-links">
+      <ul>
+        <li><a href="./首页.html" data-lang-en="Home" data-lang-zh="首页">Home</a></li>
+        <li><a href="./首页.html#products" data-lang-en="Products" data-lang-zh="产品">Products</a></li>
+        <li><a href="./custom.html" data-lang-en="Custom" data-lang-zh="定制流程">Custom</a></li>
+		<li><a href="./资讯.html" data-lang-en="News" data-lang-zh="资讯">News</a></li>
+        <li><a href="./about us.html" data-lang-en="About Us" data-lang-zh="关于我们">About Us</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="copyright" data-lang-en="&copy; Hebei Xiongan Jietong Innovation Technology Co., Ltd. All Rights Reserved." data-lang-zh="&copy; 河北雄安捷通创新科技有限公司 版权所有">
+    &copy; Hebei Xiongan Jietong Innovation Technology Co., Ltd. All Rights Reserved.
+  </div>
+</footer>
+
+<script>
+    const langToggleBtn = document.getElementById('langToggle');
+    const mobileLangToggle = document.getElementById('mobileLangToggle');
+    let isEnglish = true;
+    const langElements = document.querySelectorAll('[data-lang-en][data-lang-zh]');
+
+    function updateLanguage() {
+        langElements.forEach(el => {
+            const enText = el.getAttribute('data-lang-en');
+            const zhText = el.getAttribute('data-lang-zh');
+            el.textContent = isEnglish ? enText : zhText;
+        });
+        langToggleBtn.textContent = isEnglish ? 'ZH' : 'EN';
+        if (mobileLangToggle) {
+            mobileLangToggle.textContent = isEnglish ? 'ZH' : 'EN';
+        }
+    }
+
+    function toggleLanguage() {
+        isEnglish = !isEnglish;
+        updateLanguage();
+    }
+
+    const hamburgerBtn = document.getElementById('hamburgerBtn');
+    const closeMobileMenu = document.getElementById('closeMobileMenu');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    function openMobileMenu() {
+        mobileMenu.classList.add('active');
+        document.body.classList.add('menu-open');
+    }
+
+    function closeMobileMenuFn() {
+        mobileMenu.classList.remove('active');
+        document.body.classList.remove('menu-open');
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        updateLanguage();
+        
+        const videoWrapper = document.getElementById('videoWrapper');
+        const videoCover = document.getElementById('videoCover');
+        const videoCoverImg = document.getElementById('videoCoverImg');
+        const playBtn = document.getElementById('playBtn');
+        const companyVideo = document.getElementById('companyVideo');
+        let isFirstClick = true;
+
+        function setVideoCoverFromFirstFrame() {
+            companyVideo.addEventListener('loadeddata', () => {
+                companyVideo.pause();
+                
+                const canvas = document.createElement('canvas');
+                canvas.width = companyVideo.videoWidth;
+                canvas.height = companyVideo.videoHeight;
+                const ctx = canvas.getContext('2d');
+                
+                ctx.drawImage(companyVideo, 0, 0, canvas.width, canvas.height);
+                
+                const coverUrl = canvas.toDataURL('image/png');
+                videoCoverImg.src = coverUrl;
+            });
+        }
+
+        setVideoCoverFromFirstFrame();
+
+        function handleVideoClick() {
+            if (isFirstClick) {
+                videoCover.style.opacity = '0';
+                playBtn.style.opacity = '0';
+                setTimeout(() => {
+                    videoCover.style.display = 'none';
+                    playBtn.style.display = 'none';
+                }, 300);
+
+                companyVideo.classList.add('active');
+                companyVideo.controls = true;
+                companyVideo.play().catch(err => {
+                    console.warn('自动播放被阻止:', err);
+                });
+                isFirstClick = false;
+            }
+        }
+
+        videoWrapper.addEventListener('click', handleVideoClick);
+        playBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            handleVideoClick();
+        });
+
+        companyVideo.addEventListener('click', () => {
+            if (!isFirstClick) {
+                if (companyVideo.paused) {
+                    companyVideo.play();
+                } else {
+                    companyVideo.pause();
+                }
+            }
+        });
+
+        if (hamburgerBtn) hamburgerBtn.addEventListener('click', openMobileMenu);
+        if (closeMobileMenu) closeMobileMenu.addEventListener('click', closeMobileMenuFn);
+
+        if (mobileMenu) {
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', closeMobileMenuFn);
+            });
+        }
+
+        if (mobileLangToggle) {
+            mobileLangToggle.addEventListener('click', toggleLanguage);
+        }
+    });
+
+    langToggleBtn.addEventListener('click', toggleLanguage);
+</script>
+</body>
+</html>

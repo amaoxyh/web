@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hebei Xiongan Jietong Innovation Technology Co., Ltd.</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            font-family: "Microsoft YaHei", sans-serif;
+            background-color: #F5F0E1;
+            color: #5F2600;
+            padding-top: 70px;
+        }
+
+        header {
+            background-color: #A6655B;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            height: 70px;
+            display: flex;
+            align-items: center;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            width: 100%;
+            height: 100%;
+        }
+
+        .logo img {
+            height: 40px;
+            width: auto;
+            display: block;
+            margin: auto 0;
+        }
+
+        .desktop-nav {
+            display: flex;
+            align-items: center;
+            height: 100%;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin-left: 30px;
+            position: relative;
+            padding: 5px 0;
+            display: flex;
+            align-items: center;
+            height: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 21px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            z-index: 1001;
+        }
+
+        .hamburger span {
+            display: block;
+            height: 3px;
+            width: 100%;
+            background-color: #000;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 70px;
+            left: 0;
+            width: 100%;
+            height: calc(100vh - 70px);
+            background-color: #fff;
+            z-index: 999;
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            overflow-y: auto;
+        }
+
+        .mobile-menu .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 28px;
+            background: none;
+            border: none;
+            color: #5F2600;
+            cursor: pointer;
+        }
+
+        .mobile-menu ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: block;
+        }
+
+        .mobile-menu ul li {
+            margin: 12px 0;
+            padding: 0;
+            height: auto;
+        }
+
+        .mobile-menu ul li a {
+            text-decoration: none;
+            color: #5F2600;
+            font-size: 20px;
+            font-weight: 700;
+            display: block;
+            padding: 8px 0;
+        }
+
+        .mobile-menu .mobile-dropdown {
+            padding-left: 20px;
+            margin-top: 5px;
+            display: block;
+        }
+
+        .mobile-menu .mobile-dropdown li {
+            margin: 8px 0;
+        }
+
+        .mobile-menu .mobile-dropdown li a {
+            font-size: 18px;
+            font-weight: 500;
+        }
+
+        .mobile-lang {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .desktop-nav {
+                display: none !important;
+            }
+            
+            .hamburger {
+                display: flex;
+            }
+
+            .mobile-menu.active {
+                display: block;
+            }
+        
+            body.menu-open {
+                overflow: hidden;
+                padding-top: 0;
+            }
+
+            nav ul li {
+                margin-left: 15px;
+            }
+            nav ul li a {
+                font-size: 20px !important;
+            }
+            nav ul li .dropdown {
+                display: none !important;
+            }
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #000000;
+            font-weight: 700;
+            font-size: 25px;
+            transition: color 0.3s ease;
+            display: block;
+            padding: 5px 0;
+            line-height: 1;
+        }
+
+        nav ul li a:hover {
+            color: #4257E7;
+        }
+
+        .dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+            width: 220px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(5px);
+            transition: 
+                opacity 0.3s ease-in-out,
+                visibility 0.3s ease-in-out,
+                transform 0.3s ease-in-out;
+            z-index: 9999;
+            padding: 8px 0;
+            display: flex;
+            flex-direction: column;
+            pointer-events: none;
+        }
+
+        .dropdown li {
+            margin: 0 !important;
+            padding: 0 !important;
+            width: 100%;
+            list-style: none;
+        }
+
+        .dropdown li a {
+            font-size: 18px !important;
+            color: #5F2600;
+            padding: 10px 20px !important;
+            white-space: nowrap;
+            width: 100%;
+            box-sizing: border-box;
+            font-weight: 500;
+            border-radius: 0;
+        }
+
+        .dropdown li a:hover {
+            background-color: #F5F0E1;
+            color: #4257E7;
+            border-radius: 0;
+        }
+
+        nav ul li:hover .dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+
+        .lang-switch {
+            margin-left: 15px;
+            background: none;
+            border: 1px solid #5F2600;
+            padding: 5px 10px;
+            font-size: 16px;
+            cursor: pointer;
+            color: #5F2600;
+            font-weight: bold;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 30px;
+        }
+        
+        .lang-switch:hover,
+        .lang-switch.active {
+            background-color: #4257E7;
+            color: white;
+            border-color: #4257E7;
+        }
+
+        /* 修改点：将 max-width 从 1200px 改为 960px */
+        .news-index-section {
+            max-width: 960px; /* ← 已减小宽度 */
+            margin: 80px auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            font-size: 28px;
+            color: #5F2600;
+            text-align: center;
+            margin-bottom: 40px;
+            font-weight: bold;
+        }
+
+        .news-list {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .news-item {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .news-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+        }
+
+        .news-link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .news-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: #5F2600;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .news-date {
+            font-size: 14px;
+            color: #A6655B;
+            margin-bottom: 12px;
+            font-weight: 500;
+        }
+
+        .news-excerpt {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #5F2600;
+            opacity: 0.9;
+        }
+
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 24px;
+                margin-bottom: 30px;
+            }
+
+            .news-title {
+                font-size: 18px;
+            }
+
+            .news-excerpt {
+                font-size: 15px;
+            }
+        }
+
+        footer {
+            background-color: #111;
+            color: #F5F0E1;
+            padding: 30px 20px;
+            border-radius: 10px 10px 0 0;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-logo-icon {
+            width: 40px;
+            height: 40px;
+            background-color: #F5F0E1;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #5F2600;
+            font-size: 18px;
+            margin-right: 15px;
+        }
+
+        .footer-logo-text {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .footer-links ul {
+            display: flex;
+            list-style: none;
+        }
+
+        .footer-links ul li {
+            margin-left: 20px;
+        }
+
+        .footer-links ul li a {
+            text-decoration: none;
+            color: #F5F0E1;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links ul li a:hover {
+            color:#4257E7;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 14px;
+            opacity: 0.7;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        @media (max-width: 768px) {
+            .footer-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+            .footer-links ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .footer-links ul li {
+                margin: 0 10px;
+            }
+        }
+
+        #companyVideo:not(.active)::-webkit-media-controls {
+            display: none !important;
+        }
+        #companyVideo:not(.active) {
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="header-container">
+        <a href="./首页.html" class="logo">
+          <img src="../img/网站logo.png" alt="Jietong">
+        </a>
+
+        <button class="hamburger" id="hamburgerBtn" aria-label="Toggle navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <div class="desktop-nav">
+            <nav>
+                <ul>
+                    <li>
+                        <a href="./首页.html" data-lang-en="Home" data-lang-zh="首页">Home</a>
+                    </li>
+                    <li>
+                        <a href="./首页.html#products" data-lang-en="Products" data-lang-zh="产品">Products</a>
+                        <ul class="dropdown">
+                          <li><a href="棒球帽.html" data-lang-en="Baseball Cap" data-lang-zh="棒球帽">Baseball Cap</a></li>
+                          <li><a href="平舌帽.html" data-lang-en="Snapback Cap" data-lang-zh="平舌帽">Snapback Cap</a></li>
+                          <li><a href="速干帽.html" data-lang-en="Quick-dry Cap" data-lang-zh="速干帽">Quick-dry Cap</a></li>
+                          <li><a href="露营帽.html" data-lang-en="Camping Cap" data-lang-zh="露营帽">Camping Cap</a></li>
+                          <li><a href="卡车司机帽.html" data-lang-en="Trucker Cap" data-lang-zh="卡车司机帽">Trucker Cap</a></li>
+                          <li><a href="渔夫帽.html" data-lang-en="Bucket Cap" data-lang-zh="渔夫帽">Bucket Cap</a></li>
+                          <li><a href="针织帽.html" data-lang-en="Knitted Cap" data-lang-zh="针织帽">Knitted Cap</a></li>
+                          <li><a href="衣服.html" data-lang-en="Clothes" data-lang-zh="衣服">Clothes</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="custom.html" data-lang-en="Custom" data-lang-zh="定制流程">Custom</a></li>
+					<li><a href="资讯.html" data-lang-en="News" data-lang-zh="资讯">News</a></li>
+                    <li><a href="about us.html" data-lang-en="About Us" data-lang-zh="关于我们">About us</a></li>
+                </ul>
+            </nav>
+            <button class="lang-switch" id="langToggle">EN</button>
+        </div>
+
+        <div class="mobile-menu" id="mobileMenu">
+            <button class="close-btn" id="closeMobileMenu">&times;</button>
+            <ul>
+                <li><a href="./首页.html" data-lang-en="Home" data-lang-zh="首页">Home</a></li>
+                <li>
+                    <a href="./首页.html#products" data-lang-en="Products" data-lang-zh="产品">Products</a>
+                    <ul class="mobile-dropdown">
+                        <li><a href="棒球帽.html" data-lang-en="Baseball Cap" data-lang-zh="棒球帽">Baseball Cap</a></li>
+                        <li><a href="平舌帽.html" data-lang-en="Snapback Cap" data-lang-zh="平舌帽">Snapback Cap</a></li>
+                        <li><a href="速干帽.html" data-lang-en="Quick-dry Cap" data-lang-zh="速干帽">Quick-dry Cap</a></li>
+                        <li><a href="露营帽.html" data-lang-en="Camping Cap" data-lang-zh="露营帽">Camping Cap</a></li>
+                        <li><a href="卡车司机帽.html" data-lang-en="Trucker Cap" data-lang-zh="卡车司机帽">Trucker Cap</a></li>
+                        <li><a href="渔夫帽.html" data-lang-en="Bucket Cap" data-lang-zh="渔夫帽">Bucket Cap</a></li>
+                        <li><a href="针织帽.html" data-lang-en="Knitted Cap" data-lang-zh="针织帽">Knitted Cap</a></li>
+                        <li><a href="衣服.html" data-lang-en="Clothes" data-lang-zh="衣服">Clothes</a></li>
+                    </ul>
+                </li>
+                <li><a href="custom.html" data-lang-en="Custom" data-lang-zh="定制流程">Custom</a></li>
+                <li><a href="资讯.html" data-lang-en="News" data-lang-zh="资讯">News</a></li>
+                <li><a href="about us.html" data-lang-en="About Us" data-lang-zh="关于我们">About us</a></li>
+            </ul>
+            <div class="mobile-lang">
+                <button class="lang-switch" id="mobileLangToggle">EN</button>
+            </div>
+        </div>
+    </div>
+</header>
+
+<section class="news-index-section">
+  <h2 class="section-title" data-lang-en="News Center" data-lang-zh="资讯中心">资讯中心</h2>
+  <div class="news-list">
+    <div class="news-item">
+      <a href="../css/资讯/2025 春季新款男士廓形皮衣.html" class="news-link">
+        <div class="news-date">2026-01-15</div>
+        <h3 class="news-title" data-lang-en="2025 Spring New Arrival: Unisex Oversized Leather Jacket for Men" data-lang-zh="2025 春季新款男士廓形皮衣">2025 春季新款男士廓形皮衣</h3>
+        <p class="news-excerpt" data-lang-en="Korean-inspired cool moto leather jacket—unisex, wind-resistant, effortlessly versatile, and stylish all year round." data-lang-zh="韩系潮酷机车皮衣，男女同款，防风百搭，四季有型。">韩系潮酷机车皮衣，男女同款，防风百搭，四季有型。</p>
+      </a>
+    </div>
+
+    <div class="news-item">
+      <a href="../css/资讯/速干帽：舒适与质感的运动之选.html" class="news-link">
+        <div class="news-date">2026-01-12</div>
+        <h3 class="news-title" data-lang-en="Quick-Dry Cap: Where Comfort Meets Refined Sportswear" data-lang-zh="速干帽：舒适与质感的运动之选">速干帽：舒适与质感的运动之选</h3>
+        <p class="news-excerpt" data-lang-en="This cap is purpose-built for the golf course—a seamless fusion of refined craftsmanship and practical performance." data-lang-zh="这款帽是高尔夫场景的适配款，是工艺与实用的双向奔赴。">这款帽是高尔夫场景的适配款，是工艺与实用的双向奔赴。</p>
+      </a>
+    </div>
+
+    <div class="news-item">
+      <a href="../css/资讯/潮范网眼帽：个性字母款的夏日之选.html" class="news-link">
+        <div class="news-date">2026-01-05</div>
+        <h3 class="news-title" data-lang-en="Street-Style Mesh Cap: Bold Lettering for Summer Vibes" data-lang-zh="潮范网眼帽：个性字母款的夏日之选">潮范网眼帽：个性字母款的夏日之选</h3>
+        <p class="news-excerpt" data-lang-en="This trucker cap balances style and functionality, ideal for daily and outdoor use:" data-lang-zh="这款卡车帽兼顾了时尚与实用性，非常适合日常和户外使用：">这款卡车帽兼顾了时尚与实用性，非常适合日常和户外使用：</p>
+      </a>
+    </div>
+
+    <div class="news-item">
+      <a href="../css/资讯/露营帽：潮酷与舒适兼得.html" class="news-link">
+        <div class="news-date">2026-01-01</div>
+        <h3 class="news-title" data-lang-en="Camping Cap: Bold Style Meets Effortless Comfort" data-lang-zh="露营帽：潮酷与舒适兼得">露营帽：潮酷与舒适兼得</h3>
+        <p class="news-excerpt" data-lang-en="This cap series strikes the perfect balance between head-turning design and functional craftsmanship:" data-lang-zh="这系列帽款，设计与工艺双在线：">这系列帽款，设计与工艺双在线：</p>
+      </a>
+    </div>
+
+    <div class="news-item">
+      <a href="../css/资讯/黑色针织帽：保暖与个性兼顾.html" class="news-link">
+        <div class="news-date">2025-12-31</div>
+        <h3 class="news-title" data-lang-en="Black Knitted Cap: Warmth Meets Individuality" data-lang-zh="黑色针织帽：保暖与个性兼顾">黑色针织帽：保暖与个性兼顾</h3>
+        <p class="news-excerpt" data-lang-en="A functional yet stylish essential for fall and winter wardrobes, this beanie delivers both coziness and character:" data-lang-zh="这款冷帽是秋冬穿搭的实用型单品：">这款冷帽是秋冬穿搭的实用型单品：</p>
+      </a>
+    </div>
+	
+	<div class="news-item">
+	  <a href="../css/资讯/设计师款麂皮绒渔夫帽.html" class="news-link">
+	    <div class="news-date">2025-12-28</div>
+	    <h3 class="news-title" data-lang-en="Designer Suede-Finish Bucket Hat – Unisex Style with Standout Appeal" data-lang-zh="设计师款麂皮绒渔夫帽">设计师款麂皮绒渔夫帽</h3>
+	    <p class="news-excerpt" data-lang-en="A unisex silhouette elevated by distinctive design and premium texture—this bucket hat is a true styling statement." data-lang-zh="男女同款，以独特的设计和质感成为造型亮点。">男女同款，以独特的设计和质感成为造型亮点。</p>
+	  </a>
+	</div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="footer-content">
+    <div class="footer-logo">
+      <a href="./首页.html" style="text-decoration: none; color: inherit;">
+        <div class="footer-logo-text" data-lang-en="Jietong" data-lang-zh="捷通">Jietong</div>
+      </a>
+    </div>
+    <div class="footer-links">
+      <ul>
+        <li><a href="./首页.html" data-lang-en="Home" data-lang-zh="首页">Home</a></li>
+        <li><a href="./首页.html#products" data-lang-en="Products" data-lang-zh="产品">Products</a></li>
+        <li><a href="./custom.html" data-lang-en="Custom" data-lang-zh="定制流程">Custom</a></li>
+		<li><a href="./资讯.html" data-lang-en="News" data-lang-zh="资讯">News</a></li>
+        <li><a href="./about us.html" data-lang-en="About Us" data-lang-zh="关于我们">About Us</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="copyright" data-lang-en="&copy; Hebei Xiongan Jietong Innovation Technology Co., Ltd. All Rights Reserved." data-lang-zh="&copy; 河北雄安捷通创新科技有限公司 版权所有">
+    &copy; Hebei Xiongan Jietong Innovation Technology Co., Ltd. All Rights Reserved.
+  </div>
+</footer>
+
+<script>
+    const langToggleBtn = document.getElementById('langToggle');
+    const mobileLangToggle = document.getElementById('mobileLangToggle');
+    let isEnglish = true;
+    const langElements = document.querySelectorAll('[data-lang-en][data-lang-zh]');
+
+    const hamburgerBtn = document.getElementById('hamburgerBtn');
+    const closeMobileMenu = document.getElementById('closeMobileMenu');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    function openMobileMenu() {
+        mobileMenu.classList.add('active');
+        document.body.classList.add('menu-open');
+    }
+
+    function closeMobileMenuFn() {
+        mobileMenu.classList.remove('active');
+        document.body.classList.remove('menu-open');
+    }
+
+    function updateLanguage() {
+        langElements.forEach(el => {
+            const enText = el.getAttribute('data-lang-en');
+            const zhText = el.getAttribute('data-lang-zh');
+            el.textContent = isEnglish ? enText : zhText;
+        });
+        langToggleBtn.textContent = isEnglish ? 'ZH' : 'EN';
+
+        if (mobileLangToggle) {
+            mobileLangToggle.textContent = isEnglish ? 'ZH' : 'EN';
+        }
+    }
+
+    function toggleLanguage() {
+        isEnglish = !isEnglish;
+        updateLanguage();
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        updateLanguage();
+
+        if (hamburgerBtn) hamburgerBtn.addEventListener('click', openMobileMenu);
+        if (closeMobileMenu) closeMobileMenu.addEventListener('click', closeMobileMenuFn);
+
+        if (mobileMenu) {
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', closeMobileMenuFn);
+            });
+        }
+
+        if (mobileLangToggle) {
+            mobileLangToggle.addEventListener('click', toggleLanguage);
+        }
+    });
+
+    langToggleBtn.addEventListener('click', toggleLanguage);
+</script>
+</body>
+</html>

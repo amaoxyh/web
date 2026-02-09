@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Polyester Printed Bucket Hat - Retro Hip Hop Style (Unisex Casual, High Quality, Custom Print/Logo) - Hebei Xiong'an Jietong</title>
+  <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      }
+  
+      body {
+        color: #5F2600;
+        background-color: #F5F0E1;
+        line-height: 1.6;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+  
+      header {
+          background-color: #A6655B;
+          box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+          position: fixed;
+          width: 100%;
+          top: 0;
+          z-index: 1000;
+          height: 70px;
+          display: flex;
+          align-items: center;
+      }
+      
+      .header-container {
+          max-width: 1200px;
+          margin: 0 auto;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 0 20px;
+          width: 100%;
+          height: 100%;
+      }
+      
+      .logo img {
+          height: 40px;
+          width: auto;
+          display: block;
+          margin: auto 0;
+      }
+  
+      .logo img {
+        height: 40px;
+        width: auto;
+        display: block;
+      }
+
+      .hamburger {
+          display: none;
+          flex-direction: column;
+          justify-content: space-between;
+          width: 30px;
+          height: 21px;
+          background: transparent;
+          border: none;
+          cursor: pointer;
+          padding: 0;
+          z-index: 1001;
+      }
+
+      .hamburger span {
+          display: block;
+          height: 3px;
+          width: 100%;
+          background-color: #000;
+          border-radius: 2px;
+          transition: all 0.3s ease;
+      }
+
+      .desktop-nav-wrapper {
+          display: flex;
+          align-items: center;
+      }
+
+      .mobile-menu {
+          display: none;
+          position: fixed;
+          top: 70px;
+          left: 0;
+          width: 100%;
+          height: calc(100vh - 70px);
+          background-color: #fff;
+          z-index: 999;
+          padding: 30px 20px;
+          box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+          overflow-y: auto;
+      }
+
+      .mobile-menu.active {
+          display: block;
+      }
+
+      body.menu-open {
+          overflow: hidden;
+      }
+
+      .mobile-menu .close-btn {
+          position: absolute;
+          top: 15px;
+          right: 20px;
+          font-size: 28px;
+          background: none;
+          border: none;
+          color: #5F2600;
+          cursor: pointer;
+          line-height: 1;
+      }
+
+      .mobile-menu ul {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+          display: block;
+      }
+
+      .mobile-menu ul li {
+          margin: 15px 0;
+          padding: 0;
+      }
+
+      .mobile-menu ul li a {
+          text-decoration: none;
+          color: #5F2600;
+          font-size: 20px;
+          font-weight: 700;
+          display: block;
+          padding: 8px 0;
+      }
+
+      .mobile-menu .mobile-dropdown {
+          padding-left: 20px;
+          margin-top: 10px;
+          display: none;
+      }
+
+      .mobile-menu .mobile-dropdown.show {
+          display: block;
+      }
+
+      .mobile-menu .mobile-dropdown li {
+          margin: 8px 0;
+      }
+
+      .mobile-menu .mobile-dropdown li a {
+          font-size: 18px;
+          font-weight: 500;
+      }
+
+      .mobile-menu .menu-toggle-btn {
+          background: none;
+          border: none;
+          color: #5F2600;
+          font-size: 20px;
+          font-weight: 700;
+          cursor: pointer;
+          padding: 8px 0;
+          width: 100%;
+          text-align: left;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+      }
+
+      .mobile-menu .menu-toggle-btn i {
+          font-size: 16px;
+          transition: transform 0.3s ease;
+      }
+
+      .mobile-menu .menu-toggle-btn i.rotate {
+          transform: rotate(180deg);
+      }
+
+      .mobile-lang-switch {
+          margin-top: 30px;
+          text-align: center;
+      }
+
+      .mobile-lang-switch .lang-switch {
+          margin-left: 0;
+          font-size: 18px;
+          padding: 8px 15px;
+      }
+  
+      nav ul {
+        display: flex;
+        list-style: none;
+        margin-right: 20px;
+      }
+  
+      nav ul li {
+        margin-left: 30px;
+        position: relative;
+        padding: 5px 0;
+      }
+  
+      @media (max-width: 768px) {
+        .desktop-nav-wrapper {
+            display: none !important;
+        }
+        
+        .hamburger {
+            display: flex;
+        }
+
+        nav ul li { margin-left: 15px; }
+        nav ul li a { font-size: 20px; }
+        .dropdown-menu { display: none !important; }
+      }
+  
+      nav ul li a {
+        text-decoration: none;
+        color: #000000;
+        font-weight: 700;
+        font-size: 25px;
+        transition: color 0.3s ease;
+        display: block;
+        padding: 5px 0;
+      }
+  
+      nav ul li a:hover {
+        color: #4257E7;
+      }
+
+      .dropdown-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        width: 220px;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(5px);
+        transition: all 0.3s ease;
+        z-index: 9999;
+        padding: 8px 0;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .dropdown-menu li {
+        margin: 0 !important;
+        padding: 0 !important;
+        width: 100%;
+        list-style: none;
+      }
+
+      .dropdown-menu li a {
+        font-size: 18px !important;
+        color: #5F2600;
+        padding: 10px 20px !important;
+        white-space: nowrap;
+        width: 100%;
+        font-weight: 500;
+        border-radius: 0;
+      }
+
+      .dropdown-menu li a:hover {
+        background-color: #F5F0E1;
+        color: #4257E7;
+      }
+
+      nav ul li:hover .dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+  
+      .lang-switch {
+        margin-left: 15px;
+        background: none;
+        border: 1px solid #5F2600;
+        padding: 5px 10px;
+        font-size: 16px;
+        cursor: pointer;
+        color: #5F2600;
+        font-weight: bold;
+        border-radius: 4px;
+        transition: all 0.3s ease;
+      }
+  
+      .lang-switch:hover,
+      .lang-switch.active {
+        background-color: #4257E7;
+        color: white;
+        border-color: #4257E7;
+      }
+  
+      .btn {
+        padding: 16px 35px;
+        background-color: #4257E7;
+        color: white;
+        border: none;
+        border-radius: 30px;
+        font-size: 20px;
+        cursor: pointer;
+        transition: background 0.3s ease;
+        text-decoration: none;
+        display: inline-block;
+        font-weight: 700;
+        margin-top: 10px;
+      }
+  
+      .btn:hover {
+        background-color: #3149d6;
+      }
+  
+      main {
+        flex: 1;
+        margin: 90px auto 0;
+        padding: 40px 20px;
+        max-width: 1200px;
+        width: 100%;
+      }
+  
+      .product-detail {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 40px;
+        align-items: flex-start;
+      }
+  
+      .product-images {
+        flex: 1;
+        min-width: 300px;
+      }
+  
+      .main-image {
+        width: 100%;
+        height: 0;
+        padding-bottom: 100%;
+        position: relative;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        overflow: hidden;
+      }
+      
+      .main-image img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      .nav-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 48px;
+        height: 48px;
+        background-color: rgba(255, 255, 255, 0.9);
+        color: #4257E7;
+        border: none;
+        border-radius: 50%;
+        font-size: 24px;
+        font-weight: bold;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+        z-index: 10;
+        padding: 0;
+        line-height: 1;
+      }
+  
+      .nav-btn.prev {
+        left: 15px;
+      }
+  
+      .nav-btn.next {
+        right: 15px;
+      }
+  
+      .nav-btn:hover {
+        background-color: #4257E7;
+        color: white;
+        box-shadow: 0 2px 8px rgba(66, 87, 231, 0.4);
+      }
+
+      @media (max-width: 576px) {
+        .nav-btn {
+          width: 36px;
+          height: 36px;
+          font-size: 18px;
+        }
+      }
+  
+      .thumbnail-list {
+        display: flex;
+        gap: 10px;
+        margin-top: 15px;
+        overflow-x: auto;
+        padding-bottom: 5px;
+      }
+  
+      .thumbnail {
+        width: 80px;
+        height: 80px;
+        object-fit: cover;
+        border-radius: 8px;
+        cursor: pointer;
+        border: 2px solid transparent;
+        transition: border-color 0.2s;
+        flex-shrink: 0;
+      }
+  
+      .thumbnail:hover,
+      .thumbnail.active {
+        border-color: #4257E7;
+      }
+  
+      .product-info {
+        flex: 1;
+        min-width: 300px;
+      }
+  
+      .product-title {
+        font-size: 28px;
+        margin-bottom: 20px;
+        color: #5F2600;
+      }
+  
+      .product-desc {
+        margin-bottom: 25px;
+        font-size: 17px;
+        line-height: 1.7;
+      }
+  
+      .specs {
+        margin: 30px 0;
+      }
+  
+      .specs h3 {
+        margin-bottom: 12px;
+        font-size: 20px;
+        color: #A6655B;
+      }
+  
+      .spec-item {
+        display: flex;
+        margin-bottom: 10px;
+        align-items: flex-start;
+      }
+      
+      .spec-label {
+        font-weight: bold;
+        min-width: 160px;
+        flex-shrink: 0;
+      }
+
+      .spec-item > span:last-child {
+        padding-left: 20px;
+      }
+  
+      .custom-note {
+        background-color: #fff9e6;
+        padding: 18px;
+        border-left: 4px solid #4257E7;
+        margin: 30px 0;
+        border-radius: 8px;
+		font-size: 18px;
+		font-weight: 600;
+      }
+
+      .inquiry-form-section {
+        max-width: 1200px;
+        margin: 60px auto;
+        padding: 0 20px;
+        width: 100%;
+      }
+      .inquiry-form {
+        padding: 30px;
+        background-color: white;
+        border-radius: 16px;
+        box-shadow: 0 4px 20px rgba(95, 38, 0, 0.1);
+        max-width: 700px;
+        margin: 0 auto;
+      }
+  
+      .form-title {
+        text-align: center;
+        font-size: 28px;
+        margin-bottom: 25px;
+        color: #5F2600;
+        font-weight: bold;
+      }
+  
+      .form-group {
+        margin-bottom: 20px;
+      }
+  
+      .form-group label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 600;
+        color: #5F2600;
+        font-size: 16px;
+      }
+  
+      .form-control {
+        width: 100%;
+        padding: 12px 15px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        font-size: 16px;
+        color: #5F2600;
+        background-color: #FDF9F3;
+        transition: border-color 0.3s ease, box-shadow 0.3s ease;
+      }
+  
+      .form-control:focus {
+        outline: none;
+        border-color: #4257E7;
+        box-shadow: 0 0 0 3px rgba(66, 87, 231, 0.2);
+		background-color: #fff;
+      }
+  
+      .submit-btn {
+        width: 100%;
+        padding: 14px;
+        background-color: #4257E7;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 18px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+  
+      .submit-btn:hover {
+        background-color: #334ab0;
+      }
+
+      .submit-btn:disabled {
+        background-color: #999;
+        cursor: not-allowed;
+      }
+
+      .submit-btn .loading {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        border: 3px solid rgba(255,255,255,0.3);
+        border-radius: 50%;
+        border-top-color: white;
+        animation: spin 1s ease-in-out infinite;
+        margin-right: 8px;
+        display: none;
+      }
+
+      @keyframes spin {
+        to { transform: rotate(360deg); }
+      }
+
+      .submit-btn.loading .loading {
+        display: inline-block;
+      }
+
+      @media (max-width: 768px) {
+        .inquiry-form {
+          padding: 20px;
+        }
+        .form-title {
+          font-size: 24px;
+        }
+        .form-control, .submit-btn {
+          font-size: 16px;
+        }
+        .spec-label {
+          min-width: 120px;
+        }
+        .spec-item > span:last-child {
+          padding-left: 10px;
+        }
+      }
+  
+      footer {
+        background-color: #111;
+        color: #F5F0E1;
+        padding: 40px 20px;
+        border-radius: 10px 10px 0 0;
+        margin-top: auto;
+      }
+      
+      .footer-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 20px;
+        margin-bottom: 20px;
+      }
+      
+      .footer-logo {
+        display: flex;
+        align-items: center;
+      }
+      
+      .footer-logo-text {
+        font-size: 20px;
+        font-weight: bold;
+        color: #F5F0E1;
+      }
+      
+      .footer-links ul {
+        display: flex;
+        list-style: none;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+      
+      .footer-links ul li {
+        margin-left: 0;
+      }
+      
+      .footer-links ul li a {
+        text-decoration: none;
+        color: #F5F0E1;
+        font-size: 14px;
+        transition: color 0.3s ease;
+        padding: 5px 0;
+      }
+      
+      .footer-links ul li a:hover {
+        color:#4257E7;
+        text-decoration: underline;
+      }
+      
+      .copyright {
+        text-align: center;
+        font-size: 14px;
+        opacity: 0.8;
+        margin-top: 10px;
+      }
+    </style>
+</head>
+<body>
+
+<header>
+  <div class="header-container">
+    <a href="../首页.html" class="logo">
+      <img src="/可视化大屏/img/网站logo.png" alt="Jietong">
+    </a>
+
+    <button class="hamburger" id="hamburgerBtn" aria-label="Toggle navigation">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <div class="desktop-nav-wrapper">
+      <nav>
+        <ul>
+          <li><a href="../首页.html" data-lang-en="Home" data-lang-zh="首页">Home</a></li>
+          <li>
+            <a href="../首页.html#products" data-lang-en="Products" data-lang-zh="产品">Products</a>
+            <ul class="dropdown-menu">
+              <li><a href="../棒球帽.html" data-lang-en="Baseball Cap" data-lang-zh="棒球帽">Baseball Cap</a></li>
+              <li><a href="../平舌帽.html" data-lang-en="Snapback Cap" data-lang-zh="平舌帽">Snapback Cap</a></li>
+              <li><a href="../速干帽.html" data-lang-en="Quick-dry Cap" data-lang-zh="速干帽">Quick-dry Cap</a></li>
+              <li><a href="../露营帽.html" data-lang-en="Camping Cap" data-lang-zh="露营帽">Camping Cap</a></li>
+              <li><a href="../卡车司机帽.html" data-lang-en="Trucker Cap" data-lang-zh="卡车司机帽">Trucker Cap</a></li>
+              <li><a href="../渔夫帽.html" data-lang-en="Bucket Cap" data-lang-zh="渔夫帽">Bucket Cap</a></li>
+              <li><a href="../针织帽.html" data-lang-en="Knitted Cap" data-lang-zh="针织帽">Knitted Cap</a></li>
+              <li><a href="../衣服.html" data-lang-en="Apparel" data-lang-zh="衣服">Apparel</a></li>
+            </ul>
+          </li>
+          <li><a href="../custom.html" data-lang-en="Custom" data-lang-zh="定制流程">Custom</a></li>
+		  <li><a href="../资讯.html" data-lang-en="News" data-lang-zh="资讯">News</a></li>
+          <li><a href="../about us.html" data-lang-en="About us" data-lang-zh="关于我们">About us</a></li>
+        </ul>
+      </nav>
+      <button class="lang-switch" id="langToggle">EN</button>
+    </div>
+
+    <div class="mobile-menu" id="mobileMenu">
+      <button class="close-btn" id="closeMobileMenu">&times;</button>
+      <ul>
+        <li>
+          <a href="../首页.html" data-lang-en="Home" data-lang-zh="首页">Home</a>
+        </li>
+        <li>
+          <button class="menu-toggle-btn" id="mobileProductsToggle">
+            <span data-lang-en="Products" data-lang-zh="产品">Products</span>
+            <i>▼</i>
+          </button>
+          <ul class="mobile-dropdown" id="mobileProductsDropdown">
+            <li><a href="../棒球帽.html" data-lang-en="Baseball Cap" data-lang-zh="棒球帽">Baseball Cap</a></li>
+            <li><a href="../平舌帽.html" data-lang-en="Snapback Cap" data-lang-zh="平舌帽">Snapback Cap</a></li>
+            <li><a href="../速干帽.html" data-lang-en="Quick-dry Cap" data-lang-zh="速干帽">Quick-dry Cap</a></li>
+            <li><a href="../露营帽.html" data-lang-en="Camping Cap" data-lang-zh="露营帽">Camping Cap</a></li>
+            <li><a href="../卡车司机帽.html" data-lang-en="Trucker Cap" data-lang-zh="卡车司机帽">Trucker Cap</a></li>
+            <li><a href="../渔夫帽.html" data-lang-en="Bucket Cap" data-lang-zh="渔夫帽">Bucket Cap</a></li>
+            <li><a href="../针织帽.html" data-lang-en="Knitted Cap" data-lang-zh="针织帽">Knitted Cap</a></li>
+            <li><a href="../衣服.html" data-lang-en="Apparel" data-lang-zh="衣服">Apparel</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="../custom.html" data-lang-en="Custom" data-lang-zh="定制流程">Custom</a>
+        </li>
+        <li>
+          <a href="../资讯.html" data-lang-en="News" data-lang-zh="资讯">News</a>
+        </li>
+        <li>
+          <a href="../about us.html" data-lang-en="About us" data-lang-zh="关于我们">About us</a>
+        </li>
+      </ul>
+      <div class="mobile-lang-switch">
+        <button class="lang-switch" id="mobileLangToggle">EN</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="product-detail">
+    <div class="product-images">
+      <div class="main-image">
+        <img id="mainImg" src="https://s.alicdn.com/@sc04/kf/Hccbee4cd462e4336a249c709470e97abT.jpg?avif=close&webp=close" alt="Polyester Printed Bucket Hat">
+        <button id="prevBtn" class="nav-btn prev">&lt;</button>
+        <button id="nextBtn" class="nav-btn next">&gt;</button>
+      </div>  
+      <div class="thumbnail-list">
+        <img class="thumbnail active" src="https://s.alicdn.com/@sc04/kf/Hccbee4cd462e4336a249c709470e97abT.jpg?avif=close&webp=close" alt="View 1">
+        <img class="thumbnail" src="https://s.alicdn.com/@sc04/kf/Hf6d948ad632d4012b1ba84c82ddb9db9t.jpg?avif=close&webp=close" alt="View 2">
+        <img class="thumbnail" src="https://s.alicdn.com/@sc04/kf/Hc6ad8dfbf0974a9ba24172baa5a30952m.jpg?avif=close&webp=close" alt="View 3">
+        <img class="thumbnail" src="https://s.alicdn.com/@sc04/kf/He44bca32ba2645a1b96b6e2b33e6736cK.jpg?avif=close&webp=close" alt="View 4">
+        <img class="thumbnail" src="https://s.alicdn.com/@sc04/kf/H6d6dd61629ca478198ed426daff014ffh.jpg?avif=close&webp=close" alt="View 5">
+      </div>
+    </div>
+
+    <div class="product-info">
+      <h1 class="product-title" data-lang-en="Polyester Printed Bucket Cap" data-lang-zh="涤纶印刷渔夫帽">
+        Polyester Printed Bucket Cap
+      </h1>
+
+      <p class="product-desc" data-lang-en="New Retro Sun Protection Bucket Hat with Hip Hop Style - High Quality Polyester Printed Pattern, Unisex Casual Wear" 
+         data-lang-zh="新款复古防晒渔夫帽 嘻哈风格 高品质涤纶印花款 男女通用休闲佩戴">
+        New Retro Sun Protection Bucket Hat with Hip Hop Style - High Quality Polyester Printed Pattern, Unisex Casual Wear
+      </p>
+
+      <div class="specs">
+        <h3 data-lang-en="Specifications" data-lang-zh="产品规格">Specifications</h3>
+        <div class="spec-item">
+          <span class="spec-label" data-lang-en="Material:" data-lang-zh="材质：">Material:</span>
+          <span data-lang-en="Polyester" data-lang-zh="涤纶">Polyester</span>
+        </div>
+        <div class="spec-item">
+            <span class="spec-label" data-lang-en="Head Circumference:" data-lang-zh="头围：">Head Circumference:</span>
+            <span data-lang-en="54-56cm, 56-58cm(Custom sizes available)" data-lang-zh="54-56厘米，56-58厘米(可定制)">54-56cm, 56-58cm(Custom sizes available)</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-label" data-lang-en="Customization:" data-lang-zh="可定制项：">Customization:</span>
+            <span data-lang-en="Fabric, Color, Logo, Label/Patch, Package etc" data-lang-zh="面料、颜色、标志、标签/贴片、包装等">Fabric, Color, Logo, Label/Patch, Package etc</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-label" data-lang-en="MOQ:" data-lang-zh="最小起订量：">MOQ:</span>
+            <span data-lang-en="Per Style Per Color – 200 pieces" data-lang-zh="单款单色——200件">Per Style Per Color – 200 pieces</span>
+          </div>
+        </div>
+	  
+      <div class="custom-note">
+          <p>
+            <span class="active block" data-lang-en="We support full customization — from yarn color and logo placement to packaging. Contact us for a quote!" data-lang-zh="我们支持全流程定制——从纱线颜色、Logo位置到包装均可定制。欢迎联系我们获取报价!">We support full customization — from yarn color and logo placement to packaging. Contact us for a quote!</span>
+          </p>
+      </div>
+
+      <a href="#inquiry" class="btn" data-lang-en="Request a Quote" data-lang-zh="获取报价">Request a Quote</a>
+    </div>
+  </div>
+
+  <div class="inquiry-form-section" id="inquiry">
+    <div class="inquiry-form">
+      <h2 class="form-title" data-lang-en="Product Inquiry" data-lang-zh="产品咨询">Product Inquiry</h2>
+      <form id="productInquiryForm">
+        <div class="form-group">
+          <label for="name" data-lang-en="Your Name" data-lang-zh="您的姓名：">Your Name</label>
+          <input type="text" id="name" class="form-control" data-placeholder-en="Please enter your name" data-placeholder-zh="请输入您的姓名" placeholder="Please enter your name" required>
+        </div>
+        <div class="form-group">
+          <label for="phone" data-lang-en="Phone Number" data-lang-zh="手机号码：">Phone Number</label>
+          <input type="tel" id="phone" class="form-control" data-placeholder-en="Please enter a valid phone number" data-placeholder-zh="请输入有效的手机号码" placeholder="Please enter a valid phone number" required>
+        </div>
+        <div class="form-group">
+          <label for="email" data-lang-en="Email Address" data-lang-zh="电子邮箱：">Email Address</label>
+          <input type="email" id="email" class="form-control" data-placeholder-en="Please enter a valid email address" data-placeholder-zh="请输入有效的电子邮箱" placeholder="Please enter a valid email address" required>
+        </div>
+        <div class="form-group">
+          <label for="region" data-lang-en="Region" data-lang-zh="所在地区：">Region</label>
+          <input type="text" id="region" class="form-control" data-placeholder-en="Region" data-placeholder-zh="所在地区" placeholder="Region">
+        </div>
+        <div class="form-group">
+          <label for="message" data-lang-en="Your Requirements" data-lang-zh="您的需求：">Your Requirements</label>
+          <textarea id="message" class="form-control" rows="4" data-placeholder-en="Please describe your customization needs (e.g., printed pattern/color, polyester texture, logo embroidery, quantity...)" data-placeholder-zh="请描述您的定制需求（如印刷图案/颜色、涤纶质感、刺绣Logo、采购数量...）" placeholder="Please describe your customization needs (e.g., printed pattern/color, polyester texture, logo embroidery, quantity...)"></textarea>
+        </div>
+        <button type="submit" class="submit-btn" id="submitBtn">
+          <span class="loading"></span>
+          <span class="btn-text" data-lang-en="Submit Inquiry" data-lang-zh="提交咨询">Submit Inquiry</span>
+        </button>
+      </form>
+    </div>
+  </div>
+</main>
+
+<footer id="contact">
+  <div class="footer-content">
+    <div class="footer-logo">
+      <a href="../首页.html" style="text-decoration: none; color: inherit;">
+        <div class="footer-logo-text" data-lang-en="Jietong" data-lang-zh="捷通">Jietong</div>
+      </a>
+    </div>
+    <div class="footer-links">
+      <ul>
+        <li><a href="../首页.html" data-lang-en="Home" data-lang-zh="首页">Home</a></li>
+        <li><a href="../首页.html#products" data-lang-en="Products" data-lang-zh="产品">Products</a></li>
+        <li><a href="../custom.html" data-lang-en="Custom" data-lang-zh="定制流程">Custom</a></li>
+		<li><a href="../资讯.html" data-lang-en="News" data-lang-zh="资讯">News</a></li>
+        <li><a href="../about us.html" data-lang-en="About Us" data-lang-zh="关于我们">About Us</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="copyright" data-lang-en="&copy; Hebei Xiongan Jietong Innovation Technology Co., Ltd. All Rights Reserved." data-lang-zh="&copy; 河北雄安捷通创新科技有限公司 版权所有">
+    &copy; Hebei Xiongan Jietong Innovation Technology Co., Ltd. All Rights Reserved.
+  </div>
+</footer>
+
+<script>
+  const mainImg = document.getElementById('mainImg');
+  const thumbnails = document.querySelectorAll('.thumbnail');
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
+  let currentIndex = 0; 
+
+  function updateMainImage(index) {
+    mainImg.src = thumbnails[index].src;
+    mainImg.alt = thumbnails[index].alt;
+    thumbnails.forEach((thumb, i) => {
+      thumb.classList.toggle('active', i === index);
+    });
+    currentIndex = index;
+  }
+
+  thumbnails.forEach((thumb, index) => {
+    thumb.addEventListener('click', () => {
+      updateMainImage(index);
+    });
+  });
+
+  prevBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex - 1 + thumbnails.length) % thumbnails.length;
+    updateMainImage(currentIndex);
+  });
+
+  nextBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex + 1) % thumbnails.length;
+    updateMainImage(currentIndex);
+  });
+
+  const langToggleBtn = document.getElementById('langToggle');
+  const mobileLangToggle = document.getElementById('mobileLangToggle');
+  let currentLang = localStorage.getItem('selectedLang') || 'en';
+
+  const updateAllLangElements = (targetLang) => {
+    document.querySelectorAll('[data-lang-en][data-lang-zh]').forEach(el => {
+      if (!['INPUT', 'TEXTAREA'].includes(el.tagName) && !el.classList.contains('form-control')) {
+        el.textContent = el.getAttribute(`data-lang-${targetLang}`);
+      }
+    });
+    document.querySelectorAll('.form-control').forEach(ctrl => {
+      const placeholder = ctrl.getAttribute(`data-placeholder-${targetLang}`);
+      if (placeholder) ctrl.placeholder = placeholder;
+    });
+    langToggleBtn.textContent = targetLang === 'en' ? 'ZH' : 'EN';
+    if (mobileLangToggle) {
+      mobileLangToggle.textContent = targetLang === 'en' ? 'ZH' : 'EN';
+    }
+    document.documentElement.lang = targetLang;
+    localStorage.setItem('selectedLang', targetLang);
+  };
+
+  const switchLanguage = (targetLang) => {
+    currentLang = targetLang;
+    updateAllLangElements(targetLang);
+  };
+
+  langToggleBtn.addEventListener('click', () => {
+    switchLanguage(currentLang === 'en' ? 'zh' : 'en');
+  });
+
+  if (mobileLangToggle) {
+    mobileLangToggle.addEventListener('click', () => {
+      switchLanguage(currentLang === 'en' ? 'zh' : 'en');
+    });
+  }
+
+  const hamburgerBtn = document.getElementById('hamburgerBtn');
+  const closeMobileMenu = document.getElementById('closeMobileMenu');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const mobileProductsToggle = document.getElementById('mobileProductsToggle');
+  const mobileProductsDropdown = document.getElementById('mobileProductsDropdown');
+
+  function openMobileMenu() {
+    mobileMenu.classList.add('active');
+    document.body.classList.add('menu-open');
+  }
+
+  function closeMobileMenuFn() {
+    mobileMenu.classList.remove('active');
+    document.body.classList.remove('menu-open');
+    mobileProductsDropdown.classList.remove('show');
+    if (mobileProductsToggle.querySelector('i')) {
+      mobileProductsToggle.querySelector('i').classList.remove('rotate');
+    }
+  }
+
+  function toggleMobileProductsMenu() {
+    mobileProductsDropdown.classList.toggle('show');
+    if (mobileProductsToggle.querySelector('i')) {
+      mobileProductsToggle.querySelector('i').classList.toggle('rotate');
+    }
+  }
+
+  if (hamburgerBtn) hamburgerBtn.addEventListener('click', openMobileMenu);
+  if (closeMobileMenu) closeMobileMenu.addEventListener('click', closeMobileMenuFn);
+  if (mobileProductsToggle) mobileProductsToggle.addEventListener('click', toggleMobileProductsMenu);
+
+  if (mobileMenu) {
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', closeMobileMenuFn);
+    });
+  }
+
+  const inquiryForm = document.getElementById('productInquiryForm');
+  const submitBtn = document.getElementById('submitBtn');
+  const btnText = submitBtn.querySelector('.btn-text');
+
+  inquiryForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    if (submitBtn.disabled) return;
+
+    const name = document.getElementById('name').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const region = document.getElementById('region').value.trim();
+    const message = document.getElementById('message').value.trim();
+
+    submitBtn.disabled = true;
+    submitBtn.classList.add('loading');
+    const originalText = btnText.textContent;
+    btnText.textContent = currentLang === 'en' ? 'Submitting...' : '提交中...';
+
+    const toEmail = 'Tia@xajietong.com';
+    const subject = currentLang === 'en' ? `Product Inquiry - ${name}` : `产品咨询 - ${name}`;
+    const bodyContent = currentLang === 'en' 
+      ? `Name: ${name}\nPhone: ${phone}\nEmail: ${email}\nRegion: ${region}\n\nCustomization Requirements:\n${message}`
+      : `姓名：${name}\n电话：${phone}\n邮箱：${email}\n地区：${region}\n\n定制需求：\n${message}`;
+
+    const encodedSubject = encodeURIComponent(subject);
+    const encodedBody = encodeURIComponent(bodyContent);
+    const mailtoLink = `mailto:${toEmail}?subject=${encodedSubject}&body=${encodedBody}`;
+    alert(
+      currentLang === 'en' 
+        ? "Opening your email client...\nPlease send the pre-filled message." 
+        : "正在打开邮件客户端...\n请发送已填充好的邮件。"
+    );
+    window.location.href = mailtoLink;
+
+    setTimeout(() => {
+      inquiryForm.reset();
+      submitBtn.disabled = false;
+      submitBtn.classList.remove('loading');
+      btnText.textContent = originalText;
+    }, 1500);
+  });
+
+  switchLanguage(currentLang);
+  updateMainImage(0);
+</script>
+</body>
+</html>
