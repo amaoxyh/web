@@ -1,5 +1,6 @@
 {
-  "dependencies": {
-    "@vercel/analytics": "^1.6.1"
-  }
+  "name": "web-gpi1",
+  "version": "1.0.0",
+  "description": "河北雄安捷通创新科技有限公司官网",
+  "private": true
 }
