@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://jietongcap.com/sitemap.xml
