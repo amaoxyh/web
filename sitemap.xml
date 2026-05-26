@@ -735,7 +735,6 @@
                 <video:description>工厂和帽子生产流程介绍</video:description>
                 <video:content_loc>https://www.jietongcap.com/img/video.mp4</video:content_loc>
                 <video:duration>18</video:duration>
-                <video:allow_embed>yes</video:allow_embed>
             </video:video>
         </url>
   
