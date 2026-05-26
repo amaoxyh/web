@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset 
-  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-  xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" 
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
 
   <url>
     <loc>https://www.jietongcap.com/</loc>
@@ -725,16 +724,19 @@
   </url>
   
     <url>
-      <loc>https://jietongcap.com/About-us.html</loc>
-      <lastmod>2026-05-25</lastmod>
-      <video:video>
-        <video:thumbnail_loc>https://jietongcap.com/cover.png</video:thumbnail_loc>
-        <video:title>公司介绍</video:title>
-        <video:description>工厂和帽子生产流程介绍</video:description>
-        <video:content_loc>https://jietongcap.com/img/video.mp4</video:content_loc>
-        <video:duration>18</video:duration>
-        <video:allow_embed>yes</video:allow_embed>
-      </video:video>
-    </url>
+            <loc>https://www.jietongcap.com/About-us.html</loc>
+            <lastmod>2026-04-24</lastmod>
+            <changefreq>monthly</changefreq>
+            <priority>0.9</priority>
+
+            <video:video>
+                <video:thumbnail_loc>https://www.jietongcap.com/cover.png</video:thumbnail_loc>
+                <video:title>公司介绍</video:title>
+                <video:description>工厂和帽子生产流程介绍</video:description>
+                <video:content_loc>https://www.jietongcap.com/img/video.mp4</video:content_loc>
+                <video:duration>18</video:duration>
+                <video:allow_embed>yes</video:allow_embed>
+            </video:video>
+        </url>
   
 </urlset>
