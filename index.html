@@ -1218,13 +1218,13 @@
   const langElements = document.querySelectorAll('[data-lang-en][data-lang-zh]');
 
   function updateLanguage() {
-    langElements.forEach(el => {
-      const enText = el.getAttribute('data-lang-en');
-      const zhText = el.getAttribute('data-lang-zh');
-      el.textContent = isEnglish ? enText : zhText;
-    });
-    if (langToggleBtn) langToggleBtn.textContent = isEnglish ? 'ZH' : 'EN';
-    if (mobileLangToggle) mobileLangToggle.textContent = isEnglish ? 'ZH' : 'EN';
+      langElements.forEach(el => {
+          const enText = el.getAttribute('data-lang-en');
+          const zhText = el.getAttribute('data-lang-zh');
+          el.textContent = isEnglish ? enText : zhText;
+      });
+      if (langToggleBtn) langToggleBtn.textContent = isEnglish ? 'Chinese' : 'English';
+      if (mobileLangToggle) mobileLangToggle.textContent = isEnglish ? 'Chinese' : 'English';
   }
 
   function toggleLanguage() {
@@ -1289,7 +1289,6 @@
       });
     });
 
-    // 可选：添加自定义事件追踪（比如按钮点击）
     const contactBtn = document.querySelector('.contact-btn');
     if (contactBtn) {
       contactBtn.addEventListener('click', () => {
