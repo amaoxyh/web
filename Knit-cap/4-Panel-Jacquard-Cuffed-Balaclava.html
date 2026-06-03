@@ -854,159 +854,159 @@
 </footer>
 
 <script>
-  const mainImg = document.getElementById('mainImg');
-  const thumbnails = document.querySelectorAll('.thumbnail');
-  const prevBtn = document.getElementById('prevBtn');
-  const nextBtn = document.getElementById('nextBtn');
-  let currentIndex = 0;
-
-  function updateMainImage(index) {
-    mainImg.src = thumbnails[index].src;
-    mainImg.alt = thumbnails[index].alt;
-    thumbnails.forEach((thumb, i) => {
-      thumb.classList.toggle('active', i === index);
-    });
-    currentIndex = index;
-  }
-
-  thumbnails.forEach((thumb, index) => {
-    thumb.addEventListener('click', () => {
-      updateMainImage(index);
-    });
-  });
-
-  prevBtn.addEventListener('click', () => {
-    currentIndex = (currentIndex - 1 + thumbnails.length) % thumbnails.length;
-    updateMainImage(currentIndex);
-  });
-
-  nextBtn.addEventListener('click', () => {
-    currentIndex = (currentIndex + 1) % thumbnails.length;
-    updateMainImage(currentIndex);
-  });
-
-  const langToggleBtn = document.getElementById('langToggle');
-  const mobileLangToggle = document.getElementById('mobileLangToggle');
-  let currentLang = localStorage.getItem('selectedLang') || (langToggleBtn.textContent === 'EN' ? 'en' : 'zh');
-
-  const updateAllLangElements = (targetLang) => {
-    document.querySelectorAll('[data-lang-en][data-lang-zh]').forEach(el => {
-      if (!['INPUT', 'TEXTAREA'].includes(el.tagName) && !el.classList.contains('form-control')) {
-        el.textContent = el.getAttribute(`data-lang-${targetLang}`);
-      }
-    });
-    document.querySelectorAll('.form-control').forEach(ctrl => {
-      const placeholder = ctrl.getAttribute(`data-placeholder-${targetLang}`);
-      if (placeholder) ctrl.placeholder = placeholder;
-    });
-
-    const btnText = targetLang === 'en' ? 'ZH' : 'EN';
-    langToggleBtn.textContent = btnText;
-    if (mobileLangToggle) {
-      mobileLangToggle.textContent = btnText;
+    const mainImg = document.getElementById('mainImg');
+    const thumbnails = document.querySelectorAll('.thumbnail');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    let currentIndex = 0;
+  
+    function updateMainImage(index) {
+      mainImg.src = thumbnails[index].src;
+      mainImg.alt = thumbnails[index].alt;
+      thumbnails.forEach((thumb, i) => {
+        thumb.classList.toggle('active', i === index);
+      });
+      currentIndex = index;
     }
-
-    document.documentElement.lang = targetLang;
-    localStorage.setItem('selectedLang', targetLang);
-  };
-
-  const switchLanguage = (targetLang) => {
-    currentLang = targetLang;
-    updateAllLangElements(targetLang);
-  };
-
-  langToggleBtn.addEventListener('click', () => {
-    switchLanguage(currentLang === 'en' ? 'zh' : 'en');
-  });
-
-  if (mobileLangToggle) {
-    mobileLangToggle.addEventListener('click', () => {
+  
+    thumbnails.forEach((thumb, index) => {
+      thumb.addEventListener('click', () => {
+        updateMainImage(index);
+      });
+    });
+  
+    prevBtn.addEventListener('click', () => {
+      currentIndex = (currentIndex - 1 + thumbnails.length) % thumbnails.length;
+      updateMainImage(currentIndex);
+    });
+  
+    nextBtn.addEventListener('click', () => {
+      currentIndex = (currentIndex + 1) % thumbnails.length;
+      updateMainImage(currentIndex);
+    });
+  
+    const langToggleBtn = document.getElementById('langToggle');
+    const mobileLangToggle = document.getElementById('mobileLangToggle');
+    let currentLang = localStorage.getItem('selectedLang') || 'en';
+  
+    const updateAllLangElements = (targetLang) => {
+      document.querySelectorAll('[data-lang-en][data-lang-zh]').forEach(el => {
+        if (!['INPUT', 'TEXTAREA'].includes(el.tagName) && !el.classList.contains('form-control')) {
+          el.textContent = el.getAttribute(`data-lang-${targetLang}`);
+        }
+      });
+      document.querySelectorAll('.form-control').forEach(ctrl => {
+        const placeholder = ctrl.getAttribute(`data-placeholder-${targetLang}`);
+        if (placeholder) ctrl.placeholder = placeholder;
+      });
+  
+      const btnText = targetLang === 'en' ? 'Chinese' : 'English';
+      langToggleBtn.textContent = btnText;
+      if (mobileLangToggle) {
+        mobileLangToggle.textContent = btnText;
+      }
+  
+      document.documentElement.lang = targetLang;
+      localStorage.setItem('selectedLang', targetLang);
+    };
+  
+    const switchLanguage = (targetLang) => {
+      currentLang = targetLang;
+      updateAllLangElements(targetLang);
+    };
+  
+    langToggleBtn.addEventListener('click', () => {
       switchLanguage(currentLang === 'en' ? 'zh' : 'en');
     });
-  }
-
-  const hamburgerBtn = document.getElementById('hamburgerBtn');
-  const closeMobileMenu = document.getElementById('closeMobileMenu');
-  const mobileMenu = document.getElementById('mobileMenu');
-  const mobileProductsToggle = document.getElementById('mobileProductsToggle');
-  const mobileProductsDropdown = document.getElementById('mobileProductsDropdown');
-
-  function openMobileMenu() {
-    mobileMenu.classList.add('active');
-    document.body.classList.add('menu-open');
-  }
-
-  function closeMobileMenuFn() {
-    mobileMenu.classList.remove('active');
-    document.body.classList.remove('menu-open');
-    mobileProductsDropdown.classList.remove('show');
-    if (mobileProductsToggle.querySelector('i')) {
-      mobileProductsToggle.querySelector('i').classList.remove('rotate');
+  
+    if (mobileLangToggle) {
+      mobileLangToggle.addEventListener('click', () => {
+        switchLanguage(currentLang === 'en' ? 'zh' : 'en');
+      });
     }
-  }
-
-  function toggleMobileProductsMenu() {
-    mobileProductsDropdown.classList.toggle('show');
-    if (mobileProductsToggle.querySelector('i')) {
-      mobileProductsToggle.querySelector('i').classList.toggle('rotate');
+  
+    const hamburgerBtn = document.getElementById('hamburgerBtn');
+    const closeMobileMenu = document.getElementById('closeMobileMenu');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileProductsToggle = document.getElementById('mobileProductsToggle');
+    const mobileProductsDropdown = document.getElementById('mobileProductsDropdown');
+  
+    function openMobileMenu() {
+      mobileMenu.classList.add('active');
+      document.body.classList.add('menu-open');
     }
-  }
-
-  if (hamburgerBtn) hamburgerBtn.addEventListener('click', openMobileMenu);
-  if (closeMobileMenu) closeMobileMenu.addEventListener('click', closeMobileMenuFn);
-  if (mobileProductsToggle) mobileProductsToggle.addEventListener('click', toggleMobileProductsMenu);
-
-  if (mobileMenu) {
-    mobileMenu.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', closeMobileMenuFn);
+  
+    function closeMobileMenuFn() {
+      mobileMenu.classList.remove('active');
+      document.body.classList.remove('menu-open');
+      mobileProductsDropdown.classList.remove('show');
+      if (mobileProductsToggle.querySelector('i')) {
+        mobileProductsToggle.querySelector('i').classList.remove('rotate');
+      }
+    }
+  
+    function toggleMobileProductsMenu() {
+      mobileProductsDropdown.classList.toggle('show');
+      if (mobileProductsToggle.querySelector('i')) {
+        mobileProductsToggle.querySelector('i').classList.toggle('rotate');
+      }
+    }
+  
+    if (hamburgerBtn) hamburgerBtn.addEventListener('click', openMobileMenu);
+    if (closeMobileMenu) closeMobileMenu.addEventListener('click', closeMobileMenuFn);
+    if (mobileProductsToggle) mobileProductsToggle.addEventListener('click', toggleMobileProductsMenu);
+  
+    if (mobileMenu) {
+      mobileMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', closeMobileMenuFn);
+      });
+    }
+  
+    const inquiryForm = document.getElementById('productInquiryForm');
+    const submitBtn = document.getElementById('submitBtn');
+    const btnText = submitBtn.querySelector('.btn-text');
+  
+    inquiryForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      if (submitBtn.disabled) return;
+  
+      const name = document.getElementById('name').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const region = document.getElementById('region').value.trim();
+      const message = document.getElementById('message').value.trim();
+  
+      submitBtn.disabled = true;
+      submitBtn.classList.add('loading');
+      const originalText = btnText.textContent;
+      btnText.textContent = currentLang === 'en' ? 'Submitting...' : '提交中...';
+  
+      const toEmail = 'Tia@xajietong.com';
+      const subject = currentLang === 'en' ? `Product Inquiry - ${name}` : `产品咨询 - ${name}`;
+      const bodyContent = currentLang === 'en' 
+        ? `Name: ${name}\nPhone: ${phone}\nEmail: ${email}\nRegion: ${region}\n\nCustomization Requirements:\n${message}`
+        : `姓名：${name}\n电话：${phone}\n邮箱：${email}\n地区：${region}\n\n定制需求：\n${message}`;
+  
+      const encodedSubject = encodeURIComponent(subject);
+      const encodedBody = encodeURIComponent(bodyContent);
+      const mailtoLink = `mailto:${toEmail}?subject=${encodedSubject}&body=${encodedBody}`;
+      alert(
+        currentLang === 'en' 
+          ? "Opening your email client...\nPlease send the pre-filled message." 
+          : "正在打开邮件客户端...\n请发送已填充好的邮件。"
+      );
+      window.location.href = mailtoLink;
+  
+      setTimeout(() => {
+        inquiryForm.reset();
+        submitBtn.disabled = false;
+        submitBtn.classList.remove('loading');
+        btnText.textContent = originalText;
+      }, 1500);
     });
-  }
-
-  const inquiryForm = document.getElementById('productInquiryForm');
-  const submitBtn = document.getElementById('submitBtn');
-  const btnText = submitBtn.querySelector('.btn-text');
-
-  inquiryForm.addEventListener('submit', function(e) {
-    e.preventDefault();
-    if (submitBtn.disabled) return;
-
-    const name = document.getElementById('name').value.trim();
-    const phone = document.getElementById('phone').value.trim();
-    const email = document.getElementById('email').value.trim();
-    const region = document.getElementById('region').value.trim();
-    const message = document.getElementById('message').value.trim();
-
-    submitBtn.disabled = true;
-    submitBtn.classList.add('loading');
-    const originalText = btnText.textContent;
-    btnText.textContent = currentLang === 'en' ? 'Submitting...' : '提交中...';
-
-    const toEmail = 'Tia@xajietong.com';
-    const subject = currentLang === 'en' ? `Product Inquiry - ${name}` : `产品咨询 - ${name}`;
-    const bodyContent = currentLang === 'en' 
-      ? `Name: ${name}\nPhone: ${phone}\nEmail: ${email}\nRegion: ${region}\n\nCustomization Requirements:\n${message}`
-      : `姓名：${name}\n电话：${phone}\n邮箱：${email}\n地区：${region}\n\n定制需求：\n${message}`;
-
-    const encodedSubject = encodeURIComponent(subject);
-    const encodedBody = encodeURIComponent(bodyContent);
-    const mailtoLink = `mailto:${toEmail}?subject=${encodedSubject}&body=${encodedBody}`;
-    alert(
-      currentLang === 'en' 
-        ? "Opening your email client...\nPlease send the pre-filled message." 
-        : "正在打开邮件客户端...\n请发送已填充好的邮件。"
-    );
-    window.location.href = mailtoLink;
-
-    setTimeout(() => {
-      inquiryForm.reset();
-      submitBtn.disabled = false;
-      submitBtn.classList.remove('loading');
-      btnText.textContent = originalText;
-    }, 1500);
-  });
-
-  updateAllLangElements(currentLang);
-  updateMainImage(0);
+  
+    updateAllLangElements(currentLang);
+    updateMainImage(0);
 </script>
 </body>
 </html>

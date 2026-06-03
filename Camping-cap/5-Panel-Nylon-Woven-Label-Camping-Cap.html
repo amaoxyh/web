@@ -864,12 +864,12 @@
   const mobileProductsToggle = document.getElementById('mobileProductsToggle');
   const mobileProductsDropdown = document.getElementById('mobileProductsDropdown');
   const mobileLangToggle = document.getElementById('mobileLangToggle');
-
+  
   function openMobileMenu() {
     mobileMenu.classList.add('active');
     document.body.classList.add('menu-open');
   }
-
+  
   function closeMobileMenuFn() {
     mobileMenu.classList.remove('active');
     document.body.classList.remove('menu-open');
@@ -878,27 +878,27 @@
       mobileProductsToggle.querySelector('i').classList.remove('rotate');
     }
   }
-
+  
   function toggleMobileProductsMenu() {
     mobileProductsDropdown.classList.toggle('show');
     if (mobileProductsToggle.querySelector('i')) {
       mobileProductsToggle.querySelector('i').classList.toggle('rotate');
     }
   }
-
+  
   const mainImg = document.getElementById('mainImg');
   const thumbnails = document.querySelectorAll('.thumbnail');
   const prevBtn = document.getElementById('prevBtn');
   const nextBtn = document.getElementById('nextBtn');
   let currentIndex = 0;
-
+  
   function updateMainImage(index) {
     mainImg.src = thumbnails[index].src;
     mainImg.alt = thumbnails[index].alt;
     thumbnails.forEach((thumb, i) => thumb.classList.toggle('active', i === index));
     currentIndex = index;
   }
-
+  
   thumbnails.forEach((thumb, index) => thumb.addEventListener('click', () => updateMainImage(index)));
   prevBtn.addEventListener('click', () => {
     currentIndex = (currentIndex - 1 + thumbnails.length) % thumbnails.length;
@@ -908,15 +908,15 @@
     currentIndex = (currentIndex + 1) % thumbnails.length;
     updateMainImage(currentIndex);
   });
-
+  
   const langToggleBtn = document.getElementById('langToggle');
   let currentLang = 'en';
-
+  
   function getStoredLang() {
     const stored = localStorage.getItem('jietong_lang_preference');
     return stored && ['en', 'zh'].includes(stored) ? stored : 'en';
   }
-
+  
   function updateFormElements(targetLang) {
     document.querySelectorAll('.form-control').forEach(ctrl => {
       const placeholder = ctrl.getAttribute(`data-placeholder-${targetLang}`);
@@ -934,60 +934,60 @@
       submitBtn.textContent = submitBtn.getAttribute(`data-lang-${targetLang}`);
     }
   }
-
+  
   function updateLangElements(targetLang) {
     currentLang = targetLang;
-
+  
     document.querySelectorAll('[data-lang-en][data-lang-zh]').forEach(el => {
       if (!['INPUT', 'TEXTAREA'].includes(el.tagName) && !el.classList.contains('submit-btn')) {
         el.textContent = el.getAttribute(`data-lang-${targetLang}`);
       }
     });
-
+  
     updateFormElements(targetLang);
-
-    langToggleBtn.textContent = targetLang === 'en' ? 'ZH' : 'EN';
+  
+    langToggleBtn.textContent = targetLang === 'en' ? 'Chinese' : 'English';
     if (mobileLangToggle) {
-      mobileLangToggle.textContent = targetLang === 'en' ? 'ZH' : 'EN';
+      mobileLangToggle.textContent = targetLang === 'en' ? 'Chinese' : 'English';
     }
-
+  
     if (mobileProductsToggle) {
       const toggleText = mobileProductsToggle.querySelector('span');
       toggleText.textContent = toggleText.getAttribute(`data-lang-${targetLang}`);
     }
-
+  
     document.documentElement.lang = targetLang;
-
+  
     localStorage.setItem('jietong_lang_preference', targetLang);
   }
-
+  
   function switchLanguage(targetLang) {
     currentLang = targetLang;
     updateLangElements(targetLang);
-
+  
     if (phoneInput && phoneInput.value.trim()) {
       const phoneReg = currentLang === 'zh' ? /^[0-9]{11}$/ : /^[0-9+\-()\s]{8,20}$/;
       showError('phone', !phoneReg.test(phoneInput.value.trim()));
     }
   }
-
+  
   langToggleBtn.addEventListener('click', () => {
     switchLanguage(currentLang === 'en' ? 'zh' : 'en');
   });
-
-
+  
+  
   if (mobileLangToggle) {
     mobileLangToggle.addEventListener('click', () => {
       switchLanguage(currentLang === 'en' ? 'zh' : 'en');
     });
   }
-
+  
   const inquiryForm = document.getElementById('productInquiryForm');
   const submitBtn = inquiryForm ? inquiryForm.querySelector('.submit-btn') : null;
   const nameInput = document.getElementById('name');
   const phoneInput = document.getElementById('phone');
   const emailInput = document.getElementById('email');
-
+  
   function showError(fieldId, isShow) {
     const field = document.getElementById(fieldId);
     if (!field) return;
@@ -1003,20 +1003,20 @@
       }
     }
   }
-
+  
   function validateForm() {
     let isValid = true;
     const name = nameInput ? nameInput.value.trim() : '';
     const phone = phoneInput ? phoneInput.value.trim() : '';
     const email = emailInput ? emailInput.value.trim() : '';
-
+  
     if (!name) {
       showError('name', true);
       isValid = false;
     } else {
       showError('name', false);
     }
-
+  
     const phoneReg = currentLang === 'zh' ? /^[0-9]{11}$/ : /^[0-9+\-()\s]{8,20}$/;
     if (!phoneReg.test(phone)) {
       showError('phone', true);
@@ -1024,7 +1024,7 @@
     } else {
       showError('phone', false);
     }
-
+  
     const emailReg = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailReg.test(email)) {
       showError('email', true);
@@ -1032,10 +1032,10 @@
     } else {
       showError('email', false);
     }
-
+  
     return isValid;
   }
-
+  
   if (nameInput) {
     nameInput.addEventListener('blur', () => showError('name', !nameInput.value.trim()));
   }
@@ -1051,19 +1051,19 @@
       showError('email', !emailReg.test(emailInput.value.trim()));
     });
   }
-
+  
   if (inquiryForm) {
     inquiryForm.addEventListener('submit', async function(e) {
       e.preventDefault();
-
+  
       if (!validateForm()) return;
-
+  
       if (submitBtn) {
         submitBtn.disabled = true;
         submitBtn.classList.add('loading');
         submitBtn.textContent = currentLang === 'en' ? 'Submitting...' : '提交中...';
       }
-
+  
       try {
         const formData = {
           name: nameInput.value.trim(),
@@ -1073,9 +1073,9 @@
           message: document.getElementById('message').value.trim(),
           product: document.querySelector('.product-title').textContent
         };
-
+  
         await new Promise(resolve => setTimeout(resolve, 1500));
-
+  
         const subject = encodeURIComponent(
           currentLang === 'en' 
             ? `Camper Cap Inquiry: ${formData.product} (${formData.name})` 
@@ -1090,16 +1090,16 @@
           `${currentLang === 'en' ? 'Customization Requirements' : '定制需求'}:\n${formData.message}`
         );
         const mailtoLink = `mailto:Tia@xajietong.com?subject=${subject}&body=${body}`;
-
+  
         alert(
           currentLang === 'en' 
             ? "Opening your email client...\nPlease send the pre-filled message." 
             : "正在打开邮件客户端...\n请发送已填充好的邮件。"
         );
         window.location.href = mailtoLink;
-
+  
         inquiryForm.reset();
-
+  
       } catch (error) {
         console.error('Submit error:', error);
         alert(
@@ -1116,7 +1116,7 @@
       }
     });
   }
-
+  
   if (hamburgerBtn) hamburgerBtn.addEventListener('click', openMobileMenu);
   if (closeMobileMenu) closeMobileMenu.addEventListener('click', closeMobileMenuFn);
   if (mobileProductsToggle) mobileProductsToggle.addEventListener('click', toggleMobileProductsMenu);
@@ -1125,7 +1125,7 @@
       link.addEventListener('click', closeMobileMenuFn);
     });
   }
-
+  
   const initLang = getStoredLang();
   updateLangElements(initLang);
   updateMainImage(0);

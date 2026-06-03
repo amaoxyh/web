@@ -993,9 +993,9 @@
     body.classList.remove('lang-en', 'lang-zh');
     body.classList.add(`lang-${targetLang}`);
 
-    langToggleBtn.textContent = targetLang === 'en' ? 'ZH' : 'EN';
+    langToggleBtn.textContent = targetLang === 'en' ? 'Chinese' : 'English';
     if (mobileLangToggle) {
-      mobileLangToggle.textContent = targetLang === 'en' ? 'ZH' : 'EN';
+      mobileLangToggle.textContent = targetLang === 'en' ? 'Chinese' : 'English';
     }
     
     localStorage.setItem('jietong-lang', targetLang);

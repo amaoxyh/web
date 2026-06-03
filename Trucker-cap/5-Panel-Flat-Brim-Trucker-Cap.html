@@ -1016,9 +1016,9 @@
       document.querySelectorAll('.error-tip').forEach(tip => {
         tip.textContent = tip.getAttribute(`data-lang-${targetLang}`);
       });
-      langToggleBtn.textContent = targetLang === 'en' ? 'ZH' : 'EN';
+      langToggleBtn.textContent = targetLang === 'en' ? 'Chinese' : 'English';
       if (mobileLangToggle) {
-        mobileLangToggle.textContent = targetLang === 'en' ? 'ZH' : 'EN';
+        mobileLangToggle.textContent = targetLang === 'en' ? 'Chinese' : 'English';
       }
       document.documentElement.lang = targetLang;
     }

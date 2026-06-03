@@ -886,10 +886,12 @@
       const placeholder = ctrl.getAttribute(`data-placeholder-${targetLang}`);
       if (placeholder) ctrl.placeholder = placeholder;
     });
-    langToggleBtn.textContent = targetLang === 'en' ? 'ZH' : 'EN';
+    
+    langToggleBtn.textContent = targetLang === 'en' ? 'Chinese' : 'English';
     if (mobileLangToggle) {
-      mobileLangToggle.textContent = targetLang === 'en' ? 'ZH' : 'EN';
+      mobileLangToggle.textContent = targetLang === 'en' ? 'Chinese' : 'English';
     }
+    
     document.documentElement.lang = targetLang;
     localStorage.setItem('selectedLang', targetLang);
   };

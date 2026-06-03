@@ -610,7 +610,7 @@
           </a></li>
         </ul>
       </nav>
-      <button class="lang-switch" id="langToggle">EN</button>
+      <button class="lang-switch" id="langToggle">English</button>
     </div>
 
     <div class="mobile-menu" id="mobileMenu">
@@ -685,7 +685,7 @@
         </li>
       </ul>
       <div class="mobile-lang-switch">
-        <button class="lang-switch" id="mobileLangToggle">EN</button>
+        <button class="lang-switch" id="mobileLangToggle">English</button>
       </div>
     </div>
   </div>
@@ -816,9 +816,10 @@
     body.classList.remove('lang-en', 'lang-zh');
     body.classList.add(`lang-${targetLang}`);
 
-    langToggleBtn.textContent = targetLang === 'en' ? 'ZH' : 'EN';
+    // 核心修改：英文显示 Chinese，中文显示 English
+    langToggleBtn.textContent = targetLang === 'en' ? 'Chinese' : 'English';
     if (mobileLangToggle) {
-      mobileLangToggle.textContent = targetLang === 'en' ? 'ZH' : 'EN';
+      mobileLangToggle.textContent = targetLang === 'en' ? 'Chinese' : 'English';
     }
 
     localStorage.setItem('jietong-lang', targetLang);
@@ -826,8 +827,8 @@
     document.documentElement.lang = targetLang;
 
     document.title = targetLang === 'en' 
-      ? 'Craftsmanship Unveiled: How Much Thought is Hidden in This Baseball Cap?'
-      : '【工艺解析】这款棒球帽，藏着多少细节巧思？';
+      ? '2026 Spring New Arrival: Unisex Oversized Leather Jacket for Men'
+      : '2026 春季新款男士廓形皮衣';
   }
 
   langToggleBtn.addEventListener('click', () => {

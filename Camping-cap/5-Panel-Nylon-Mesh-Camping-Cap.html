@@ -614,7 +614,7 @@
     
     .footer-logo {
       display: flex;
-      align-items: center;
+      the-align: center;
     }
     
     .footer-logo-text {
@@ -1034,14 +1034,16 @@
     const materialSpan = document.querySelector('.spec-item:nth-child(2) span:last-child');
     materialSpan.textContent = targetLang === 'en' ? 'Nylon Mesh' : '尼龙网眼';
 
-    langToggleBtn.textContent = targetLang === 'en' ? 'ZH' : 'EN';
+
+    langToggleBtn.textContent = targetLang === 'en' ? 'Chinese' : 'English';
 
     if (mobileProductsToggle) {
       const toggleText = mobileProductsToggle.querySelector('span');
       toggleText.textContent = toggleText.getAttribute(`data-lang-${targetLang}`);
     }
     if (mobileLangToggle) {
-      mobileLangToggle.textContent = targetLang === 'en' ? 'ZH' : 'EN';
+
+      mobileLangToggle.textContent = targetLang === 'en' ? 'Chinese' : 'English';
     }
 
     if (submitBtn && !submitBtn.disabled) {

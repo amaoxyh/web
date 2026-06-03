@@ -855,7 +855,7 @@
   const prevBtn = document.getElementById('prevBtn');
   const nextBtn = document.getElementById('nextBtn');
   let currentIndex = 0;
-
+  
   const hamburgerBtn = document.getElementById('hamburgerBtn');
   const closeMobileMenu = document.getElementById('closeMobileMenu');
   const mobileMenu = document.getElementById('mobileMenu');
@@ -865,19 +865,19 @@
   const mobileLangToggle = document.getElementById('mobileLangToggle');
   
   let currentLang = localStorage.getItem('jietong_lang_preference') || 'en';
-
+  
   const updateMainImage = (index) => {
     mainImg.src = thumbnails[index].src;
     mainImg.alt = thumbnails[index].alt;
     thumbnails.forEach((thumb, i) => thumb.classList.toggle('active', i === index));
     currentIndex = index;
   };
-
+  
   function openMobileMenu() {
     mobileMenu.classList.add('active');
     document.body.classList.add('menu-open');
   }
-
+  
   function closeMobileMenuFn() {
     mobileMenu.classList.remove('active');
     document.body.classList.remove('menu-open');
@@ -886,14 +886,14 @@
       mobileProductsToggle.querySelector('i').classList.remove('rotate');
     }
   }
-
+  
   function toggleMobileProductsMenu() {
     mobileProductsDropdown.classList.toggle('show');
     if (mobileProductsToggle.querySelector('i')) {
       mobileProductsToggle.querySelector('i').classList.toggle('rotate');
     }
   }
-
+  
   const updateAllLangElements = (targetLang) => {
     document.querySelectorAll('[data-lang-en][data-lang-zh]').forEach(el => {
       if (!['INPUT', 'TEXTAREA'].includes(el.tagName)) {
@@ -906,21 +906,23 @@
     document.querySelectorAll('.error-tip').forEach(tip => {
       tip.textContent = tip.getAttribute(`data-lang-${targetLang}`);
     });
-    langToggleBtn.textContent = targetLang === 'en' ? 'ZH' : 'EN';
+    
+    langToggleBtn.textContent = targetLang === 'en' ? 'Chinese' : 'English';
     if (mobileLangToggle) {
-      mobileLangToggle.textContent = targetLang === 'en' ? 'ZH' : 'EN';
+      mobileLangToggle.textContent = targetLang === 'en' ? 'Chinese' : 'English';
     }
+    
     document.documentElement.lang = targetLang;
     localStorage.setItem('jietong_lang_preference', targetLang);
   };
-
+  
   function toggleLanguage() {
     currentLang = currentLang === 'en' ? 'zh' : 'en';
     updateAllLangElements(currentLang);
   }
-
+  
   thumbnails.forEach((thumb, index) => thumb.addEventListener('click', () => updateMainImage(index)));
-
+  
   prevBtn.addEventListener('click', () => {
     currentIndex = (currentIndex - 1 + thumbnails.length) % thumbnails.length;
     updateMainImage(currentIndex);
@@ -929,28 +931,28 @@
     currentIndex = (currentIndex + 1) % thumbnails.length;
     updateMainImage(currentIndex);
   });
-
+  
   updateAllLangElements(currentLang);
   updateMainImage(0);
-
+  
   langToggleBtn.addEventListener('click', toggleLanguage);
   if (mobileLangToggle) {
     mobileLangToggle.addEventListener('click', toggleLanguage);
   }
-
+  
   if (hamburgerBtn) hamburgerBtn.addEventListener('click', openMobileMenu);
   if (closeMobileMenu) closeMobileMenu.addEventListener('click', closeMobileMenuFn);
   if (mobileProductsToggle) mobileProductsToggle.addEventListener('click', toggleMobileProductsMenu);
-
+  
   if (mobileMenu) {
     mobileMenu.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', closeMobileMenuFn);
     });
   }
-
+  
   const inquiryForm = document.getElementById('productInquiryForm');
   const submitBtn = inquiryForm.querySelector('.submit-btn');
-
+  
   function validateForm() {
     let isValid = true;
     const name = document.getElementById('name').value.trim();
@@ -958,31 +960,31 @@
     const email = document.getElementById('email').value.trim();
     const emailReg = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const phoneReg = /^[0-9+\-()\s]{8,20}$/;
-
+  
     if (!name) {
       showError('name', true);
       isValid = false;
     } else {
       showError('name', false);
     }
-
+  
     if (!phoneReg.test(phone)) {
       showError('phone', true);
       isValid = false;
     } else {
       showError('phone', false);
     }
-
+  
     if (!emailReg.test(email)) {
       showError('email', true);
       isValid = false;
     } else {
       showError('email', false);
     }
-
+  
     return isValid;
   }
-
+  
   function showError(fieldId, isShow) {
     const field = document.getElementById(fieldId);
     const errorTip = field.nextElementSibling;
@@ -994,7 +996,7 @@
       errorTip.style.display = 'none';
     }
   }
-
+  
   function submitInquiry() {
     const name = document.getElementById('name').value.trim();
     const phone = document.getElementById('phone').value.trim();
@@ -1002,7 +1004,7 @@
     const region = document.getElementById('region').value.trim();
     const message = document.getElementById('message').value.trim();
     const productName = document.querySelector('.product-title').textContent;
-
+  
     const toEmail = 'Tia@xajietong.com';
     const subject = currentLang === 'en' 
       ? `Product Inquiry: ${productName} (from ${name})` 
@@ -1010,23 +1012,23 @@
     const bodyText = currentLang === 'en' 
       ? `Product: ${productName}\nName: ${name}\nPhone: ${phone}\nEmail: ${email}\nRegion: ${region}\n\nCustomization Requirements:\n${message}`
       : `产品名称：${productName}\n姓名：${name}\n电话：${phone}\n邮箱：${email}\n地区：${region}\n\n定制需求：\n${message}`;
-
+  
     const mailtoLink = `mailto:${toEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyText)}`;
-	alert(
-	  currentLang === 'en' 
-	    ? "Opening your email client...\nPlease send the pre-filled message." 
-	    : "正在打开邮件客户端...\n请发送已填充好的邮件。"
-	);
+  alert(
+    currentLang === 'en' 
+      ? "Opening your email client...\nPlease send the pre-filled message." 
+      : "正在打开邮件客户端...\n请发送已填充好的邮件。"
+  );
     window.location.href = mailtoLink;
   }
-
+  
   inquiryForm.addEventListener('submit', function(e) {
     e.preventDefault();
     if (validateForm()) {
       submitBtn.disabled = true;
       submitBtn.classList.add('loading');
       submitBtn.textContent = currentLang === 'en' ? 'Submitting...' : '提交中...';
-
+  
       setTimeout(() => {
         submitInquiry();
         submitBtn.disabled = false;

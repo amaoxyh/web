@@ -606,7 +606,8 @@
           </a></li>
         </ul>
       </nav>
-      <button class="lang-switch" id="langToggle">EN</button>
+      <!-- 桌面语言切换按钮：中文界面时显示 English -->
+      <button class="lang-switch" id="langToggle">English</button>
     </div>
 
     <div class="mobile-menu" id="mobileMenu">
@@ -681,7 +682,8 @@
         </li>
       </ul>
       <div class="mobile-lang-switch">
-        <button class="lang-switch" id="mobileLangToggle">EN</button>
+        <!-- 移动端语言切换按钮初始显示 English -->
+        <button class="lang-switch" id="mobileLangToggle">English</button>
       </div>
     </div>
   </div>
@@ -813,9 +815,9 @@
     body.classList.remove('lang-en', 'lang-zh');
     body.classList.add(`lang-${targetLang}`);
 
-    langToggleBtn.textContent = targetLang === 'en' ? 'ZH' : 'EN';
+    langToggleBtn.textContent = targetLang === 'en' ? 'Chinese' : 'English';
     if (mobileLangToggle) {
-      mobileLangToggle.textContent = targetLang === 'en' ? 'ZH' : 'EN';
+      mobileLangToggle.textContent = targetLang === 'en' ? 'Chinese' : 'English';
     }
 
     localStorage.setItem('jietong-lang', targetLang);
@@ -823,8 +825,8 @@
     document.documentElement.lang = targetLang;
 
     document.title = targetLang === 'en' 
-      ? 'Craftsmanship Unveiled: How Much Thought is Hidden in This Baseball Cap?'
-      : '【工艺解析】这款棒球帽，藏着多少细节巧思？';
+      ? 'Street-Style Mesh Cap: Bold Lettering for Summer Vibes'
+      : '潮范网眼帽：个性字母款的夏日之选';
   }
 
   langToggleBtn.addEventListener('click', () => {

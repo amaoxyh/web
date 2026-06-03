@@ -1026,13 +1026,13 @@
       tip.textContent = tip.getAttribute(`data-lang-${targetLang}`);
     });
 
-    langToggleBtn.textContent = targetLang === 'en' ? 'ZH' : 'EN';
+    langToggleBtn.textContent = targetLang === 'en' ? 'Chinese' : 'English';
     if (mobileProductsToggle) {
       const toggleText = mobileProductsToggle.querySelector('span');
       toggleText.textContent = toggleText.getAttribute(`data-lang-${targetLang}`);
     }
     if (mobileLangToggle) {
-      mobileLangToggle.textContent = targetLang === 'en' ? 'ZH' : 'EN';
+      mobileLangToggle.textContent = targetLang === 'en' ? 'Chinese' : 'English';
     }
     document.documentElement.lang = targetLang;
   }
