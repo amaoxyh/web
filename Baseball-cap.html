@@ -350,15 +350,45 @@
       padding: 0 20px;
     }
     
+    /* 平板设备：一行2个 */
     @media (max-width: 900px) {
       .category-list {
         grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
       }
     }
     
-    @media (max-width: 500px) {
+    /* 手机设备：一行2个 */
+    @media (max-width: 768px) {
       .category-list {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        padding: 0 12px;
+      }
+      
+      .category-item {
+        font-size: 14px;
+        padding: 10px 12px;
+        white-space: normal;
+        word-break: break-word;
+        max-width: 100%;
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 12px;
+      }
+    }
+    
+    @media (max-width: 400px) {
+      .category-list {
+        gap: 8px;
+        padding: 0 8px;
+      }
+      .category-item {
+        font-size: 12px;
+        padding: 8px 10px;
+        border-radius: 10px;
       }
     }
     

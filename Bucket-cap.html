@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Custom Bucket Hats Wholesale | Private Label Fishing & Sun Hats Vendor</title>
-  <meta name="description" content="Discover comfortable bucket hats with wide brims for ultimate sun protection. Breathable mesh lining and adjustable straps available. Find your outdoor essential today.">
+  <title>Custom Baseball Caps & Headwear Manufacturer | Hebei Xiong'an Jietong Innovation Tech Co., Ltd. </title>
+  <meta name="description" content="Looking for a reliable hat manufacturer? We supply bulk blank baseball caps, snapbacks, and trucker hats at factory-direct prices. Support for custom logos and low MOQ. Perfect for retailers and corporate promotions. Get a free quote today!">
   <script defer src="/_vercel/insights/script.js"></script>
   <style>
     * {
@@ -54,6 +54,11 @@
         margin: auto 0;
     }
 
+    .desktop-nav-wrapper {
+        display: flex;
+        align-items: center;
+    }
+
     .hamburger {
         display: none;
         flex-direction: column;
@@ -74,11 +79,6 @@
         background-color: #000;
         border-radius: 2px;
         transition: all 0.3s ease;
-    }
-
-    .desktop-nav-wrapper {
-        display: flex;
-        align-items: center;
     }
 
     .mobile-menu {
@@ -211,14 +211,26 @@
           display: flex;
       }
 
+      nav ul {
+        margin-right: 10px;
+      }
       nav ul li {
         margin-left: 15px;
       }
       nav ul li a {
-        font-size: 20px;
+        font-size: 18px;
       }
       .dropdown-menu {
         display: none !important;
+      }
+    }
+
+    @media (max-width: 480px) {
+      nav ul li {
+        margin-left: 10px;
+      }
+      nav ul li a {
+        font-size: 16px;
       }
     }
 
@@ -246,7 +258,7 @@
       width: 220px;
       opacity: 0;
       visibility: hidden;
-      transform: translateY(5px);
+      transform: translateY(10px);
       transition: all 0.3s ease;
       z-index: 9999;
       padding: 8px 0;
@@ -327,6 +339,7 @@
       background-color: #3149d6;
     }
 
+    /* ========== 定制分类样式 ========== */
     .category-list {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -336,18 +349,6 @@
       max-width: 1200px;
       margin: 0 auto 40px;
       padding: 0 20px;
-    }
-    
-    @media (max-width: 900px) {
-      .category-list {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-    
-    @media (max-width: 500px) {
-      .category-list {
-        grid-template-columns: 1fr;
-      }
     }
     
     .category-item {
@@ -364,12 +365,75 @@
       border: 1px solid #5F2600;
       width: 100%;
       max-width: 200px;
+      -webkit-tap-highlight-color: transparent; /* 移除移动端点击高亮 */
     }
     
     .category-item:hover {
       background-color: #3149d6;
       color: white;
       border-color: #3149d6;
+    }
+
+    /* 移动端点击反馈（触屏设备） */
+    .category-item:active {
+      transform: scale(0.96);
+      background-color: #3149d6;
+      color: white;
+      border-color: #3149d6;
+    }
+    
+    /* 平板设备：一行2个 */
+    @media (max-width: 900px) {
+      .category-list {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+        padding: 0 16px;
+      }
+      
+      .category-item {
+        max-width: 100%;
+        padding: 12px 14px;
+        font-size: 16px;
+        border-radius: 16px;
+      }
+    }
+    
+    /* 手机设备：一行2个 */
+    @media (max-width: 768px) {
+      .category-list {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        padding: 0 12px;
+        margin-bottom: 30px;
+      }
+      
+      .category-item {
+        font-size: 13px;
+        padding: 12px 10px;
+        white-space: normal;           /* 允许文字换行 */
+        word-break: break-word;        /* 长词换行 */
+        max-width: 100%;
+        min-height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 12px;
+        line-height: 1.3;
+        border-width: 1.5px;
+      }
+    }
+    
+    @media (max-width: 400px) {
+      .category-list {
+        gap: 8px;
+        padding: 0 8px;
+      }
+      .category-item {
+        font-size: 11px;
+        padding: 10px 8px;
+        border-radius: 10px;
+        min-height: 42px;
+      }
     }
 
     main {
@@ -486,84 +550,114 @@
     }
 
     footer {
-      background-color: #111;
-      color: #F5F0E1;
-      padding: 40px 20px;
-      border-radius: 10px 10px 0 0;
-      margin-top: auto;
+        background-color: #111;
+        color: #F5F0E1;
+        padding: 40px 20px;
+        border-radius: 10px 10px 0 0;
+        margin-top: 80px;
     }
     
     .footer-content {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 20px;
-      margin-bottom: 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 20px;
     }
     
     .footer-logo {
-      display: flex;
-      align-items: center;
+        display: flex;
+        align-items: center;
+    }
+    
+    .footer-logo-icon {
+        width: 40px;
+        height: 40px;
+        background-color: #F5F0E1;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #5F2600;
+        font-size: 18px;
+        margin-right: 15px;
     }
     
     .footer-logo-text {
-      font-size: 20px;
-      font-weight: bold;
-      color: #F5F0E1;
+        font-size: 20px;
+        font-weight: bold;
     }
     
     .footer-links ul {
-      display: flex;
-      list-style: none;
-      flex-wrap: wrap;
-      gap: 20px;
+        display: flex;
+        list-style: none;
+        flex-wrap: wrap;
+        gap: 15px;
     }
     
     .footer-links ul li {
-      margin-left: 0;
+        margin-left: 0;
     }
     
     .footer-links ul li a {
-      text-decoration: none;
-      color: #F5F0E1;
-      font-size: 14px;
-      transition: color 0.3s ease;
-      padding: 5px 0;
+        text-decoration: none;
+        color: #F5F0E1;
+        font-size: 14px;
+        transition: color 0.3s ease;
+        padding: 5px 0;
     }
     
     .footer-links ul li a:hover {
-      color: #4257E7;
-      text-decoration: underline;
+        color:#4257E7;
+        text-decoration: underline;
     }
-    
+
     .copyright {
       text-align: center;
+      margin-top: 20px;
       font-size: 14px;
       opacity: 0.8;
-      margin-top: 10px;
-    }
-    
-    .footer-design {
-      text-align: center;
-      font-size: 13px;
-      opacity: 0.7;
-      margin-top: 8px;
     }
 
     [data-lang-en], [data-lang-zh] {
       display: none;
     }
     .lang-en [data-lang-en], .lang-zh [data-lang-zh] {
-      display: inline-block;
+      display: inline;
     }
     .lang-en [data-lang-en].block, .lang-zh [data-lang-zh].block {
       display: block;
     }
-    .lang-en [data-lang-en].inline, .lang-zh [data-lang-zh].inline {
-      display: inline;
+    
+
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    .product-item img {
+      background: #f1f1f1;
+      position: relative;
+      overflow: hidden;
+    }
+    .product-item img::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      animation: loading 1.5s infinite;
+    }
+    @keyframes loading {
+      100% {
+        left: 100%;
+      }
+    }
+    .product-item img.loaded::before {
+      display: none;
     }
   </style>
 </head>
@@ -637,7 +731,7 @@
 		    <span data-lang-zh>资讯</span>
 		  </a></li>
           <li><a href="About-us.html" class="nav-link">
-            <span data-lang-en>About-us</span>
+            <span data-lang-en>About-Us</span>
             <span data-lang-zh>关于我们</span>
           </a></li>
         </ul>
@@ -711,7 +805,7 @@
         </li>
         <li>
           <a href="About-us.html" class="nav-link">
-            <span data-lang-en>About-us</span>
+            <span data-lang-en>About-Us</span>
             <span data-lang-zh>关于我们</span>
           </a>
         </li>
@@ -762,115 +856,117 @@
   </section>
 
   <div class="more-title">
-    <span data-lang-en class="block">Bucket Cap</span>
-    <span data-lang-zh class="block">渔夫帽</span>
+    <span data-lang-en>Baseball Cap</span>
+    <span data-lang-zh>棒球帽</span>
   </div>
 
   <section class="product-gallery" id="products">
     <div class="product-item">
-      <a href="./Bucket-cap/Terry-Cloth-Bucket-Cap.html" target="_blank">
-        <img src="./img/73.webp" alt="Terry cloth bucket hat">
+      <a href="./Baseball-cap/6-Panel-Wool-Patch-Embroidery-Baseball-Cap.html" target="_blank">
+        <img src="./img/33.webp" alt="6-panel wool patch embroidery baseball cap" onload="this.classList.add('loaded')">
       </a>
       <p class="caption">
-        <span data-lang-en class="inline">Terry cloth bucket cap</span>
-        <span data-lang-zh class="inline">毛巾布料渔夫帽</span>
+        <span data-lang-en>6-panel wool patch embroidery baseball cap</span>
+        <span data-lang-zh>6片毛呢贴布绣棒球帽</span>
       </p>
     </div>
     <div class="product-item">
-      <a href="./Bucket-cap/Corduroy-Tie-Dye-Bucket-Cap.html" target="_blank">
-        <img src="./img/49.webp" alt="Corduroy tie-dye bucket hat">
+      <a href="./Baseball-cap/5-Panel-Cotton-Embroidery-Patch-Baseball-Cap.html" target="_blank">
+        <img src="./img/13.webp" alt="5-panel cotton embroidered badge baseball cap" onload="this.classList.add('loaded')">
       </a>
       <p class="caption">
-        <span data-lang-en class="inline">Corduroy tie-dye bucket cap</span>
-        <span data-lang-zh class="inline">灯芯绒扎染渔夫帽</span>
+        <span data-lang-en>5-panel cotton applique baseball cap</span>
+        <span data-lang-zh>5片纯棉绣花章棒球帽</span>
       </p>
     </div>
     <div class="product-item">
-      <a href="./Bucket-cap/Corduroy-Flat-Embroidery-Bucket-Cap.html" target="_blank">
-        <img src="./img/45.webp" alt="Corduroy flat embroidered bucket hat">
+      <a href="./Baseball-cap/5-Panel-Cotton-Applique-Baseball-Cap.html" target="_blank">
+        <img src="./img/9.webp" alt="5-panel cotton patchwork embroidery baseball cap" onload="this.classList.add('loaded')">
       </a>
       <p class="caption">
-        <span data-lang-en class="inline">Corduroy flat embroidered bucket cap</span>
-        <span data-lang-zh class="inline">灯芯绒平绣渔夫帽</span>
+        <span data-lang-en>5-panel cotton applique baseball cap</span>
+        <span data-lang-zh>5片纯棉贴布绣棒球帽</span>
       </p>
     </div>
     <div class="product-item">
-      <a href="./Bucket-cap/Velvet-Flat-Embroidered-Bucket-Cap.html" target="_blank">
-        <img src="./img/77.webp" alt="Velvet flat embroidered bucket hat">
+      <a href="./Baseball-cap/5-Panel-Cotton-3D-Embroidery-Baseball-Cap.html" target="_blank">
+        <img src="./img/5.webp" alt="5-panel cotton 3D embroidery baseball cap" onload="this.classList.add('loaded')">
       </a>
       <p class="caption">
-        <span data-lang-en class="inline">Velvet flat embroidered bucket cap</span>
-        <span data-lang-zh class="inline">天鹅绒平绣渔夫帽</span>
+        <span data-lang-en>5-panel cotton 3D embroidery baseball cap</span>
+        <span data-lang-zh>5片纯棉立体绣棒球帽</span>
       </p>
     </div>
     <div class="product-item">
-      <a href="./Bucket-cap/Cotton-Flat-Embroidered-Bucket-Cap.html" target="_blank">
-        <img src="./img/57.webp" alt="100% cotton flat embroidered bucket hat">
+      <a href="./Baseball-cap/6-Panel-Wool-Flat-Embroidery-Baseball-Cap.html" target="_blank">
+        <img src="./img/29.webp" alt="6-panel wool flat embroidery baseball cap" onload="this.classList.add('loaded')">
       </a>
       <p class="caption">
-        <span data-lang-en class="inline">100% cotton flat embroidered bucket cap</span>
-        <span data-lang-zh class="inline">纯棉平绣渔夫帽</span>
+        <span data-lang-en>6-panel wool flat embroidery baseball cap</span>
+        <span data-lang-zh>6片毛呢平绣棒球帽</span>
       </p>
     </div>
     <div class="product-item">
-      <a href="./Bucket-cap/Denim-Flat-Embroidered-Bucket-Cap.html" target="_blank">
-        <img src="./img/65.webp" alt="Denim flat embroidered bucket hat">
+      <a href="./Baseball-cap/5-Panel-Corduroy-3D-Embroidery-Baseball-Cap.html" target="_blank">
+        <img src="./img/1.webp" alt="5-panel corduroy 3D embroidery baseball cap" onload="this.classList.add('loaded')">
       </a>
       <p class="caption">
-        <span data-lang-en class="inline">Denim flat embroidered bucket cap</span>
-        <span data-lang-zh class="inline">牛仔平绣渔夫帽</span>
+        <span data-lang-en>5-panel corduroy 3D embroidery baseball cap</span>
+        <span data-lang-zh>5片灯芯绒立体绣棒球帽</span>
       </p>
     </div>
     <div class="product-item">
-      <a href="./Bucket-cap/Polyester-Printed-Bucket-Cap.html" target="_blank">
-        <img src="./img/69.webp" alt="4-panel tie-dye woven label knitted caps">
+      <a href="./Baseball-cap/5-Panel-Laser-Hole-Baseball-Cap.html" target="_blank">
+        <img src="./img/17.webp" alt="5-panel laser hole baseball cap" onload="this.classList.add('loaded')">
       </a>
       <p class="caption">
-        <span data-lang-en class="inline">Polyester printed bucket cap</span>
-        <span data-lang-zh class="inline">涤纶印刷渔夫帽</span>
+        <span data-lang-en>5-panel laser hole baseball cap</span>
+        <span data-lang-zh>5片激光打孔棒球帽</span>
       </p>
     </div>
     <div class="product-item">
-      <a href="./Bucket-cap/Cotton-Woven-Patch-Bucket-Cap.html" target="_blank">
-        <img src="./img/61.webp" alt="100% cotton woven patch bucket hat">
+      <a href="./Baseball-cap/Round-Top-Cotton-Patch-Embroidery-Baseball-Cap.html" target="_blank">
+        <img src="./img/37.webp" alt="Round-top cotton patch embroidery baseball cap" onload="this.classList.add('loaded')">
       </a>
       <p class="caption">
-        <span data-lang-en class="inline">100% cotton woven patch bucket cap</span>
-        <span data-lang-zh class="inline">纯棉织章渔夫帽</span>
+        <span data-lang-en>Round-top cotton patch embroidery baseball cap</span>
+        <span data-lang-zh>圆顶纯棉贴布绣棒球帽</span>
       </p>
     </div>
     <div class="product-item">
-      <a href="./Bucket-cap/Cotton-Embroidered-Bucket-Cap.html" target="_blank">
-        <img src="./img/53.webp" alt="100% cotton flat embroidery bucket hat">
+      <a href="./Baseball-cap/6-Panel-Leather-Metal-Embroidery-Baseball-Cap.html" target="_blank">
+        <img src="./img/21.webp" alt="6-panel leather metal embroidery baseball cap" onload="this.classList.add('loaded')">
       </a>
       <p class="caption">
-        <span data-lang-en class="inline">100% cotton embroidery bucket cap</span>
-        <span data-lang-zh class="inline">纯棉刺绣渔夫帽</span>
+        <span data-lang-en>6-panel leather metal embroidery baseball cap</span>
+        <span data-lang-zh>6片皮革金属绣棒球帽</span>
       </p>
     </div>
     <div class="product-item">
-      <a href="./Bucket-cap/Beach-Style-Wide-Brim-Bucket-Cap.html" target="_blank">
-        <img src="./img/41.webp" alt="Beach-style wide-brim bucket hat">
-      </a>  
+      <a href="./Baseball-cap/6-Panel-Nylon-Rubber-Label-Baseball-Cap.html" target="_blank">
+        <img src="./img/25.webp" alt="6-panel nylon rubber label baseball cap" onload="this.classList.add('loaded')">
+      </a>
       <p class="caption">
-        <span data-lang-en class="inline">Beach-style wide-brim bucket cap</span>
-        <span data-lang-zh class="inline">大帽檐沙滩风渔夫帽</span>
+        <span data-lang-en>6-panel nylon rubber label baseball cap</span>
+        <span data-lang-zh>6片尼龙橡胶标棒球帽</span>
       </p>
     </div>
   </section>
-
-  <div class="about">
-    <p>
-      <span data-lang-en class="block">Hebei Xiong'an Jietong Innovation Technology Co., Ltd. is committed to providing high-quality products and professional services. We focus on technological innovation and product quality, and strive to meet the diverse needs of customers.</span>
-      <span data-lang-zh class="block">河北雄安捷通创新科技有限公司致力于提供高质量的产品和专业的服务。我们注重技术创新和产品质量，努力满足客户的多样化需求。</span>
-    </p>
-
-    <a href="#contact" class="btn">
-      <span data-lang-en class="inline">Contact Us</span>
-      <span data-lang-zh class="inline">联系我们</span>
-    </a>
-  </div>
 </main>
+
+<div class="about">
+  <p data-lang-en class="block">
+    Hebei Xiong'an Jietong Innovation Technology Co., Ltd. is committed to providing high-quality products and professional services. We focus on technological innovation and product quality, and strive to meet the diverse needs of customers.
+  </p>
+  <p data-lang-zh class="block">
+    河北雄安捷通创新科技有限公司致力于提供高质量的产品和专业的服务。我们注重技术创新和产品质量，努力满足客户的多样化需求。
+  </p>
+
+  <a href="#contact" class="btn">
+    <span data-lang-en>Contact Us</span>
+    <span data-lang-zh>联系我们</span>
+  </a>
+</div>
 
 <footer>
   <div class="footer-content">
@@ -901,7 +997,7 @@
 		  <span data-lang-zh>资讯</span>
 		</a></li>
         <li><a href="./About-us.html">
-          <span data-lang-en>About-us</span>
+          <span data-lang-en>About-Us</span>
           <span data-lang-zh>关于我们</span>
         </a></li>
       </ul>
@@ -916,8 +1012,8 @@
 <script>
   const langToggleBtn = document.getElementById('langToggle');
   const mobileLangToggle = document.getElementById('mobileLangToggle');
+  let currentLang = 'en';
   const body = document.body;
-  let currentLang = 'en'; 
 
   const hamburgerBtn = document.getElementById('hamburgerBtn');
   const closeMobileMenu = document.getElementById('closeMobileMenu');
@@ -942,9 +1038,17 @@
     mobileProductsToggle.querySelector('i').classList.toggle('rotate');
   }
 
+  function initLanguage() {
+    const savedLang = localStorage.getItem('jietong-lang');
+    if (savedLang) {
+      currentLang = savedLang;
+    }
+    switchLanguage(currentLang);
+  }
+
   function switchLanguage(targetLang) {
     currentLang = targetLang;
-
+    
     body.classList.remove('lang-en', 'lang-zh');
     body.classList.add(`lang-${targetLang}`);
 
@@ -952,33 +1056,81 @@
     if (mobileLangToggle) {
       mobileLangToggle.textContent = targetLang === 'en' ? 'Chinese' : 'English';
     }
- 
-    const titleEn = "Hebei Xiong'an Jietong Innovation Technology Co., Ltd.";
-    const titleZh = "河北雄安捷通创新科技有限公司";
-    document.title = targetLang === 'en' ? titleEn : titleZh;
+    
+    localStorage.setItem('jietong-lang', targetLang);
+    
+    document.documentElement.lang = targetLang;
+
+    document.title = targetLang === 'en' 
+      ? 'Hebei Xiong\'an Jietong Innovation Technology Co., Ltd.'
+      : '河北雄安捷通创新科技有限公司';
   }
 
   langToggleBtn.addEventListener('click', () => {
-    switchLanguage(currentLang === 'en' ? 'zh' : 'en');
+    const newLang = currentLang === 'en' ? 'zh' : 'en';
+    switchLanguage(newLang);
   });
 
   if (mobileLangToggle) {
     mobileLangToggle.addEventListener('click', () => {
-      switchLanguage(currentLang === 'en' ? 'zh' : 'en');
+      const newLang = currentLang === 'en' ? 'zh' : 'en';
+      switchLanguage(newLang);
     });
   }
 
-  if (hamburgerBtn) hamburgerBtn.addEventListener('click', openMobileMenu);
-  if (closeMobileMenu) closeMobileMenu.addEventListener('click', closeMobileMenuFn);
-  if (mobileProductsToggle) mobileProductsToggle.addEventListener('click', toggleMobileProductsMenu);
+  document.addEventListener('DOMContentLoaded', () => {
+    initLanguage();
 
-  if (mobileMenu) {
-    mobileMenu.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', closeMobileMenuFn);
+    if (hamburgerBtn) hamburgerBtn.addEventListener('click', openMobileMenu);
+    if (closeMobileMenu) closeMobileMenu.addEventListener('click', closeMobileMenuFn);
+    if (mobileProductsToggle) mobileProductsToggle.addEventListener('click', toggleMobileProductsMenu);
+
+    if (mobileMenu) {
+      mobileMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', closeMobileMenuFn);
+      });
+    }
+    
+    const dropdownItems = document.querySelectorAll('nav ul li');
+    dropdownItems.forEach(item => {
+      item.addEventListener('click', (e) => {
+        if (window.innerWidth <= 768) {
+          const dropdown = item.querySelector('.dropdown-menu');
+          if (dropdown) {
+            e.preventDefault();
+            dropdown.style.display = dropdown.style.display === 'flex' ? 'none' : 'flex';
+          }
+        }
+      });
     });
-  }
+    
+    const productImages = document.querySelectorAll('.product-item img');
+    productImages.forEach(img => {
+      img.addEventListener('error', () => {
+        img.src = 'https://via.placeholder.com/200?text=Product+Image';
+        img.alt = 'Product image unavailable';
+      });
+    });
+  });
 
-  switchLanguage(currentLang);
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const targetId = this.getAttribute('href');
+      if (targetId === '#') return;
+      
+      const targetElement = document.querySelector(targetId);
+      if (targetElement) {
+        const headerHeight = document.querySelector('header').offsetHeight;
+        const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight - 20;
+        
+        window.scrollTo({
+          top: targetPosition,
+          behavior: 'smooth'
+        });
+      }
+    });
+  });
 </script>
 </body>
 </html>
