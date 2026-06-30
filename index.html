@@ -308,7 +308,7 @@
         .hero-carousel {
             position: relative;
             width: 100%;
-            height: 100vh;
+            aspect-ratio: 16 / 9;  /* 桌面及默认 16:9 */
             overflow: hidden;
             margin-top: 0;
         }
@@ -421,12 +421,11 @@
             background: white;
         }
 
-        /* 移动端轮播图 */
+        /* 移动端轮播图 — 保持 16:9 */
         @media (max-width: 768px) {
             .hero-carousel {
-                height: 60vh;
-                min-height: 320px;
-                max-height: 500px;
+                aspect-ratio: 16 / 9;   /* 强制 16:9 */
+                height: auto;           /* 由宽高比撑开 */
             }
 
             .carousel-arrow {
@@ -457,9 +456,8 @@
 
         @media (max-width: 480px) {
             .hero-carousel {
-                height: 50vh;
-                min-height: 250px;
-                max-height: 380px;
+                aspect-ratio: 16 / 9;   /* 保持 16:9 */
+                height: auto;
             }
 
             .carousel-arrow {
@@ -1422,7 +1420,10 @@
     <div class="carousel-container">
         <div class="carousel-slides" id="carouselSlides">
             <div class="slide active">
-                <img src="./img/Banner.webp" alt="Banner 1">
+                <picture>
+					<source srcset="./img/Banner1.webp" media="(max-width: 768px)">
+					<img src="./img/Banner.webp" alt="Banner 1">
+					</picture>
             </div>
             <div class="slide">
                 <img src="./img/IMG_3110.webp" alt="Baseball Cap">
