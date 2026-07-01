@@ -320,6 +320,15 @@
       background-color: #3149d6;
     }
 
+    @media (max-width: 768px) {
+      .btn {
+        padding: 14px 28px;
+        font-size: 17px;
+        width: 100%;
+        text-align: center;
+      }
+    }
+
     .related-page-link {
       margin: 25px 0;
       padding: 15px;
@@ -350,6 +359,7 @@
       width: 100%;
     }
 
+    /* ========== 产品详情 - 响应式布局 ========== */
     .product-detail {
       display: flex;
       flex-wrap: wrap;
@@ -357,9 +367,21 @@
       align-items: flex-start;
     }
 
+    @media (max-width: 768px) {
+      .product-detail {
+        gap: 25px;
+      }
+    }
+
     .product-images {
       flex: 1;
-      min-width: 300px;
+      min-width: 280px;
+    }
+
+    @media (max-width: 480px) {
+      .product-images {
+        min-width: 100%;
+      }
     }
 
     .main-image {
@@ -424,6 +446,12 @@
         height: 36px;
         font-size: 18px;
       }
+      .nav-btn.prev {
+        left: 8px;
+      }
+      .nav-btn.next {
+        right: 8px;
+      }
     }
 
     .thumbnail-list {
@@ -432,6 +460,7 @@
       margin-top: 15px;
       overflow-x: auto;
       padding-bottom: 5px;
+      -webkit-overflow-scrolling: touch;
     }
 
     .thumbnail {
@@ -450,9 +479,22 @@
       border-color: #4257E7;
     }
 
+    @media (max-width: 480px) {
+      .thumbnail {
+        width: 60px;
+        height: 60px;
+      }
+    }
+
     .product-info {
       flex: 1;
-      min-width: 300px;
+      min-width: 280px;
+    }
+
+    @media (max-width: 480px) {
+      .product-info {
+        min-width: 100%;
+      }
     }
 
     .product-title {
@@ -461,10 +503,22 @@
       color: #5F2600;
     }
 
+    @media (max-width: 768px) {
+      .product-title {
+        font-size: 24px;
+      }
+    }
+
     .product-desc {
       margin-bottom: 25px;
       font-size: 17px;
       line-height: 1.7;
+    }
+
+    @media (max-width: 768px) {
+      .product-desc {
+        font-size: 15px;
+      }
     }
 
     .specs {
@@ -477,11 +531,11 @@
       color: #A6655B;
     }
 
-
     .spec-item {
       display: flex;
       margin-bottom: 10px;
       align-items: flex-start;
+      flex-wrap: wrap;
     }
 
     .spec-label {
@@ -490,6 +544,30 @@
       flex-shrink: 0;
     }
 
+    @media (max-width: 768px) {
+      .spec-label {
+        min-width: 120px;
+        font-size: 14px;
+      }
+      .spec-item > span:last-child {
+        font-size: 14px;
+        padding-left: 10px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .spec-item {
+        flex-direction: column;
+        margin-bottom: 8px;
+      }
+      .spec-label {
+        min-width: auto;
+        margin-bottom: 2px;
+      }
+      .spec-item > span:last-child {
+        padding-left: 0;
+      }
+    }
 
     .spec-item > span:last-child {
       padding-left: 20px;
@@ -500,16 +578,32 @@
       border-left: 4px solid #4257E7;
       margin: 30px 0;
       border-radius: 8px;
-	  font-size: 18px; 
-	  font-weight: 600;  
-	  background-color: #fff9e6;
+      font-size: 18px; 
+      font-weight: 600;  
+      background-color: #fff9e6;
     }
 
+    @media (max-width: 768px) {
+      .custom-note {
+        font-size: 15px;
+        padding: 14px;
+      }
+    }
+
+    /* ========== 询价表单 - 响应式 ========== */
     .inquiry-form-section {
       max-width: 1200px;
       margin: 60px auto;
       padding: 0 20px;
     }
+
+    @media (max-width: 768px) {
+      .inquiry-form-section {
+        margin: 40px auto;
+        padding: 0 12px;
+      }
+    }
+
     .inquiry-form {
       background-color: #FFFFFF;
       padding: 30px;
@@ -518,6 +612,20 @@
       max-width: 700px;
       margin: 0 auto;
     }
+
+    @media (max-width: 768px) {
+      .inquiry-form {
+        padding: 20px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .inquiry-form {
+        padding: 16px;
+        border-radius: 10px;
+      }
+    }
+
     .form-title {
       font-size: 28px;
       color: #5F2600;
@@ -525,9 +633,18 @@
       text-align: center;
       font-weight: bold;
     }
+
+    @media (max-width: 768px) {
+      .form-title {
+        font-size: 24px;
+        margin-bottom: 20px;
+      }
+    }
+
     .form-group {
       margin-bottom: 20px;
     }
+
     .form-group label {
       display: block;
       margin-bottom: 6px;
@@ -535,6 +652,13 @@
       color: #5F2600;
       font-size: 16px;
     }
+
+    @media (max-width: 768px) {
+      .form-group label {
+        font-size: 14px;
+      }
+    }
+
     .form-control {
       width: 100%;
       padding: 12px 15px;
@@ -544,12 +668,21 @@
       background-color: #FDF9F3;
       transition: border-color 0.3s ease, box-shadow 0.3s ease;
     }
+
     .form-control:focus {
       outline: none;
       border-color: #4257E7;
       box-shadow: 0 0 0 3px rgba(66, 87, 231, 0.2);
-	  background-color: #fff;
+      background-color: #fff;
     }
+
+    @media (max-width: 768px) {
+      .form-control {
+        padding: 10px 12px;
+        font-size: 15px;
+      }
+    }
+
     .submit-btn {
       width: 100%;
       padding: 14px;
@@ -562,36 +695,26 @@
       cursor: pointer;
       transition: background-color 0.3s ease;
     }
+
     .submit-btn:hover {
       background-color: #334ab0;
     }
 
     @media (max-width: 768px) {
-      .inquiry-form {
-        padding: 20px;
-      }
-      .form-title {
-        font-size: 24px;
-      }
-      .form-control, .submit-btn {
+      .submit-btn {
+        padding: 12px;
         font-size: 16px;
-      }
-
-      .spec-label {
-        min-width: 120px;
-      }
-      .spec-item > span:last-child {
-        padding-left: 10px;
       }
     }
 
+    /* ========== 页脚 - 响应式 ========== */
     footer {
       background-color: #111;
       color: #F5F0E1;
       padding: 40px 20px;
       border-radius: 10px 10px 0 0;
       margin-top: auto;
-	  height: 155px;
+      min-height: 155px;
     }
     
     .footer-content {
@@ -652,6 +775,37 @@
       font-size: 13px;
       opacity: 0.7;
       margin-top: 8px;
+    }
+
+    @media (max-width: 768px) {
+      footer {
+        padding: 30px 16px 35px;
+        min-height: auto;
+      }
+      .footer-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+      }
+      .footer-links ul {
+        justify-content: center;
+        gap: 12px;
+      }
+      .footer-links ul li a {
+        font-size: 13px;
+      }
+      .copyright {
+        font-size: 12px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .footer-links ul {
+        gap: 8px;
+      }
+      .footer-links ul li a {
+        font-size: 12px;
+      }
     }
   </style>
 </head>
