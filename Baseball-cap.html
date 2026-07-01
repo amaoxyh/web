@@ -339,26 +339,53 @@
       background-color: #3149d6;
     }
 
+    /* ========== 定制分类 - 响应式网格 ========== */
     .category-list {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
       gap: 15px;
       justify-items: center;
       width: 100%;
       max-width: 1200px;
       margin: 0 auto 40px;
       padding: 0 20px;
+      grid-template-columns: repeat(4, 1fr);
     }
     
-    /* 平板设备：一行2个 */
-    @media (max-width: 900px) {
+    .category-item {
+      padding: 10px 16px;
+      background-color: #F5F0E1;
+      color: #A6655B;
+      text-decoration: none;
+      border-radius: 20px;
+      font-size: 18px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      text-align: center;
+      white-space: nowrap;
+      border: 1px solid #5F2600;
+      width: 100%;
+      max-width: 200px;
+    }
+    
+    .category-item:hover {
+      background-color: #3149d6;
+      color: white;
+      border-color: #3149d6;
+    }
+
+    /* 响应式断点 */
+    @media (max-width: 992px) {
       .category-list {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr);
         gap: 12px;
       }
+      .category-item {
+        max-width: 180px;
+        font-size: 16px;
+        padding: 10px 14px;
+      }
     }
-    
-    /* 手机设备：一行2个 */
+
     @media (max-width: 768px) {
       .category-list {
         grid-template-columns: repeat(2, 1fr);
@@ -389,29 +416,8 @@
         font-size: 12px;
         padding: 8px 10px;
         border-radius: 10px;
+        min-height: 38px;
       }
-    }
-    
-    .category-item {
-      padding: 10px 16px;
-      background-color: #F5F0E1;
-      color: #A6655B;
-      text-decoration: none;
-      border-radius: 20px;
-      font-size: 18px;
-      font-weight: 500;
-      transition: all 0.3s ease;
-      text-align: center;
-      white-space: nowrap;
-      border: 1px solid #5F2600;
-      width: 100%;
-      max-width: 200px;
-    }
-    
-    .category-item:hover {
-      background-color: #3149d6;
-      color: white;
-      border-color: #3149d6;
     }
 
     main {
@@ -453,47 +459,29 @@
       border-radius: 3px;
     }
 
+    /* ========== 产品展示 - 响应式网格 ========== */
     .product-gallery {
-      display: flex;
-      flex-wrap: wrap;
+      display: grid;
       gap: 25px;
       justify-content: center;
       margin: 0 auto;
       max-width: 1200px;
       padding: 0 20px;
       box-sizing: border-box;
+      grid-template-columns: repeat(5, 1fr);
     }
 
     .product-item {
-      flex: 1 1 calc(20% - 20px);
-      min-width: 160px;
       display: flex;
       flex-direction: column;
       align-items: center;
       text-align: center;
-    }
-
-    @media (max-width: 992px) {
-      .product-item {
-        flex: 1 1 calc(25% - 20px);
-      }
-    }
-
-    @media (max-width: 768px) {
-      .product-item {
-        flex: 1 1 calc(33.33% - 20px);
-      }
-    }
-
-    @media (max-width: 576px) {
-      .product-item {
-        flex: 1 1 calc(50% - 20px);
-      }
+      width: 100%;
     }
 
     .product-item img {
       width: 100%;
-      height: 200px;
+      aspect-ratio: 1 / 1;
       object-fit: cover;
       border-radius: 8px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
@@ -510,6 +498,45 @@
       color: #5F2600;
       line-height: 1.4;
       padding: 0 5px;
+      word-break: break-word;
+    }
+
+    /* 产品网格响应式断点 */
+    @media (max-width: 1024px) {
+      .product-gallery {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .product-gallery {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+        padding: 0 12px;
+      }
+      
+      .product-item img {
+        aspect-ratio: 1 / 1;
+      }
+      
+      .caption {
+        font-size: 14px;
+        margin-top: 6px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .product-gallery {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        padding: 0 8px;
+      }
+      
+      .caption {
+        font-size: 12px;
+        margin-top: 4px;
+      }
     }
 
     .about {
@@ -550,19 +577,6 @@
         align-items: center;
     }
     
-    .footer-logo-icon {
-        width: 40px;
-        height: 40px;
-        background-color: #F5F0E1;
-        border-radius: 50%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        color: #5F2600;
-        font-size: 18px;
-        margin-right: 15px;
-    }
-    
     .footer-logo-text {
         font-size: 20px;
         font-weight: bold;
@@ -597,6 +611,17 @@
       margin-top: 20px;
       font-size: 14px;
       opacity: 0.8;
+    }
+
+    /* 页脚响应式 */
+    @media (max-width: 768px) {
+      .footer-content {
+        flex-direction: column;
+        text-align: center;
+      }
+      .footer-links ul {
+        justify-content: center;
+      }
     }
 
     [data-lang-en], [data-lang-zh] {
