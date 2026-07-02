@@ -4,9 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Hebei Jietong Innovation Tech | Custom Hat & Headwear Manufacturer</title>
-	<meta name="description" content="Hebei Xiong'an is a leading custom hat manufacturer with years of export experience. Factory direct sales of baseball caps, snap caps, truck caps, knitted caps, and clothing. Certified by Alibaba, exported to the United States, European Union, Canada, Australia, and the Middle East.">
+    <meta name="description" content="Hebei Xiong'an is a leading custom hat manufacturer with years of export experience. Factory direct sales of baseball caps, snap caps, truck caps, knitted caps, and clothing. Certified by Alibaba, exported to the United States, European Union, Canada, Australia, and the Middle East.">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
-	<script defer src="/_vercel/insights/script.js"></script>
+    <script defer src="/_vercel/insights/script.js"></script>
     <style>
         * {
             margin: 0;
@@ -422,13 +422,14 @@
             color: #5F2600;
         }
 
+        /* ========== Feature Section - 重新组织 ========== */
         .feature-section {
             max-width: 1200px;
             margin: 60px auto;
             padding: 0 20px;
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
+            gap: 30px;
         }
 
         .feature-box {
@@ -436,6 +437,33 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            background-color: #fff;
+            padding: 25px 20px;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .feature-icon {
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 64px;
+            height: 64px;
+            background-color: #F5F0E1;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .feature-icon i {
+            font-size: 32px;
+            color: #5F2600;
         }
 
         .feature-title {
@@ -450,19 +478,7 @@
             font-size: 14px;
             color: #5F2600;
             line-height: 1.5;
-        }
-
-        .feature-icon {
-            margin-top: 10px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 50px;
-        }
-
-        .feature-icon i {
-            font-size: 40px;
-            color: #5F2600;
+            margin: 0;
         }
 
         .certificate-section {
@@ -570,6 +586,14 @@
             pointer-events: none;
         }
 
+        /* ========== 响应式布局 ========== */
+        @media (max-width: 992px) {
+            .feature-section {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+        }
+
         @media (max-width: 768px) {
             .desktop-nav {
                 display: none !important;
@@ -606,7 +630,28 @@
 
             .feature-section {
                 grid-template-columns: repeat(2, 1fr);
-                gap: 20px;
+                gap: 15px;
+            }
+
+            .feature-box {
+                padding: 20px 15px;
+            }
+
+            .feature-icon {
+                width: 54px;
+                height: 54px;
+            }
+
+            .feature-icon i {
+                font-size: 26px;
+            }
+
+            .feature-title {
+                font-size: 16px;
+            }
+
+            .feature-description {
+                font-size: 13px;
             }
 
             .play-btn {
@@ -628,6 +673,36 @@
 
             .core-advantages-container h3 {
                 font-size: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .feature-section {
+                grid-template-columns: 1fr 1fr;
+                gap: 12px;
+                padding: 0 12px;
+            }
+
+            .feature-box {
+                padding: 16px 12px;
+                border-radius: 10px;
+            }
+
+            .feature-icon {
+                width: 48px;
+                height: 48px;
+            }
+
+            .feature-icon i {
+                font-size: 22px;
+            }
+
+            .feature-title {
+                font-size: 14px;
+            }
+
+            .feature-description {
+                font-size: 12px;
             }
         }
     </style>
@@ -656,7 +731,7 @@
                         <ul class="dropdown">
                           <li><a href="Baseball-cap.html" data-lang-en="Baseball Cap" data-lang-zh="棒球帽">Baseball Cap</a></li>
                           <li><a href="Snapback-cap.html" data-lang-en="Snapback Cap" data-lang-zh="平舌帽">Snapback Cap</a></li>
-						  <li><a href="Quick-drying-hat.html" data-lang-en="Quick-dry Cap" data-lang-zh="速干帽">Quick-dry Cap</a></li>
+                          <li><a href="Quick-drying-hat.html" data-lang-en="Quick-dry Cap" data-lang-zh="速干帽">Quick-dry Cap</a></li>
                           <li><a href="Camping-cap.html" data-lang-en="Camping Cap" data-lang-zh="露营帽">Camping Cap</a></li>
                           <li><a href="Trucker-cap.html" data-lang-en="Trucker Cap" data-lang-zh="卡车司机帽">Trucker Cap</a></li>
                           <li><a href="Bucket-cap.html" data-lang-en="Bucket Cap" data-lang-zh="渔夫帽">Bucket Cap</a></li>
@@ -665,7 +740,7 @@
                         </ul>
                     </li>
                     <li><a href="Custom.html" data-lang-en="Custom" data-lang-zh="定制流程">Custom</a></li>
-					<li><a href="News.html" data-lang-en="News" data-lang-zh="资讯">News</a></li>
+                    <li><a href="News.html" data-lang-en="News" data-lang-zh="资讯">News</a></li>
                     <li><a href="About-us.html" data-lang-en="About-us" data-lang-zh="关于我们">About-us</a></li>
                 </ul>
             </nav>
@@ -722,58 +797,46 @@
     </div>
 </section>
 
+<!-- ========== Feature Section - 每个框都有图标和文字 ========== -->
 <div class="feature-section">
-    <div class="feature-box">
-        <div class="feature-content">
-            <span class="feature-title" data-lang-en="EXPORT EXPERIENCE" data-lang-zh="出口经验"></span>
-            <p class="feature-description" data-lang-en="We are professional custom hats technical process factory that certified by Alibaba and trade for more than 20 years."
-               data-lang-zh="我们是经阿里巴巴认证的专业定制帽子的技术工厂，贸易经验超过20年。">
-            </p>
-        </div>
-    </div>
-    <div class="feature-box">
-        <div class="feature-content">
-            <span class="feature-title" data-lang-en="FACTORY DIRECT SALE" data-lang-zh="工厂直销"></span>
-            <p class="feature-description" data-lang-en="We have our own mill so that we can offer you the products with high quality and competitive prices."
-               data-lang-zh="我们拥有自己的工厂，能为您提供高质量、有竞争力价格的产品。">
-            </p>
-        </div>
-    </div>
-    <div class="feature-box">
-        <div class="feature-content">
-            <span class="feature-title" data-lang-en="CUSTOMIZED SERVICE" data-lang-zh="定制服务"></span>
-            <p class="feature-description" data-lang-en="We can provide customized service according to your needs."
-               data-lang-zh="我们可根据您的需求提供定制服务。">
-            </p>
-        </div>
-    </div>
-    <div class="feature-box">
-        <div class="feature-content">
-            <span class="feature-title" data-lang-en="PROFESSIONAL EQUIPMENT" data-lang-zh="专业设备"></span>
-            <p class="feature-description" data-lang-en="We have professional imported embroidery machines, sewing machines, ironing machines and other professional hat making production equipment"
-               data-lang-zh="我们拥有专业的进口刺绣机，缝纫机，熨烫机等专业制帽生产设备。">
-            </p>
-        </div>
-    </div>
     <div class="feature-box">
         <div class="feature-icon">
             <i class="ri-global-line"></i>
         </div>
+        <span class="feature-title" data-lang-en="EXPORT EXPERIENCE" data-lang-zh="出口经验"></span>
+        <p class="feature-description" data-lang-en="We are professional custom hats technical process factory that certified by Alibaba and trade for more than 20 years."
+           data-lang-zh="我们是经阿里巴巴认证的专业定制帽子的技术工厂，贸易经验超过20年。">
+        </p>
     </div>
+
     <div class="feature-box">
         <div class="feature-icon">
             <i class="ri-building-line"></i>
         </div>
+        <span class="feature-title" data-lang-en="FACTORY DIRECT SALE" data-lang-zh="工厂直销"></span>
+        <p class="feature-description" data-lang-en="We have our own mill so that we can offer you the products with high quality and competitive prices."
+           data-lang-zh="我们拥有自己的工厂，能为您提供高质量、有竞争力价格的产品。">
+        </p>
     </div>
+
     <div class="feature-box">
         <div class="feature-icon">
             <i class="ri-edit-box-line"></i>
         </div>
+        <span class="feature-title" data-lang-en="CUSTOMIZED SERVICE" data-lang-zh="定制服务"></span>
+        <p class="feature-description" data-lang-en="We can provide customized service according to your needs."
+           data-lang-zh="我们可根据您的需求提供定制服务。">
+        </p>
     </div>
+
     <div class="feature-box">
         <div class="feature-icon">
             <i class="ri-tools-line"></i>
         </div>
+        <span class="feature-title" data-lang-en="PROFESSIONAL EQUIPMENT" data-lang-zh="专业设备"></span>
+        <p class="feature-description" data-lang-en="We have professional imported embroidery machines, sewing machines, ironing machines and other professional hat making production equipment"
+           data-lang-zh="我们拥有专业的进口刺绣机，缝纫机，熨烫机等专业制帽生产设备。">
+        </p>
     </div>
 </div>
 
@@ -816,7 +879,7 @@
         <li><a href="./index.html" data-lang-en="Home" data-lang-zh="首页">Home</a></li>
         <li><a href="./index.html#products" data-lang-en="Products" data-lang-zh="产品">Products</a></li>
         <li><a href="./Custom.html" data-lang-en="Custom" data-lang-zh="定制流程">Custom</a></li>
-		<li><a href="./News.html" data-lang-en="News" data-lang-zh="资讯">News</a></li>
+        <li><a href="./News.html" data-lang-en="News" data-lang-zh="资讯">News</a></li>
         <li><a href="./About-us.html" data-lang-en="About-us" data-lang-zh="关于我们">About-us</a></li>
       </ul>
     </div>
