@@ -749,6 +749,28 @@
 	    <changefreq>monthly</changefreq>
 	    <priority>0.8</priority>
 	  </url>
+	  
+	<url>
+	    <loc>https://www.jietongcap.com/Snapback-cap/5-Panel-Cotton-Flat-Top-Snapback-Cap.html</loc>
+	    <lastmod>2026-04-24</lastmod>
+	    <changefreq>monthly</changefreq>
+	    <priority>0.8</priority>
+	  </url>
+	  
+	<url>
+	    <loc>https://www.jietongcap.com/Snapback-cap/5-Panel-3D-Embroidery-Cotton-Snapback-Cap.html</loc>
+	    <lastmod>2026-04-24</lastmod>
+	    <changefreq>monthly</changefreq>
+	    <priority>0.8</priority>
+	  </url>
+	  
+	<url>
+	    <loc>https://www.jietongcap.com/Snapback-cap/5-Panel-Cotton-Chain-Stitch-Embroidery-Snapback-Cap.html</loc>
+	    <lastmod>2026-04-24</lastmod>
+	    <changefreq>monthly</changefreq>
+	    <priority>0.8</priority>
+	  </url>
+	  
 
 
 </urlset>
