@@ -357,7 +357,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            object-fit: contain;
+            object-fit: cover;
             display: block;
         }
 
@@ -579,13 +579,6 @@
             transform: scale(1.02);
         }
 
-        #companyVideo:not(.active)::-webkit-media-controls {
-            display: none !important;
-        }
-        #companyVideo:not(.active) {
-            pointer-events: none;
-        }
-
         /* ========== 响应式布局 ========== */
         @media (max-width: 992px) {
             .feature-section {
@@ -711,7 +704,7 @@
 <header>
     <div class="header-container">
         <a href="./index.html" class="logo">
-          <img src="./img/logo.webp" alt="Jietong">
+            <img src="./img/logo.webp" alt="Jietong">
         </a>
 
         <button class="hamburger" id="hamburgerBtn" aria-label="Toggle navigation">
@@ -777,7 +770,15 @@
 
 <section class="about-section">
     <div class="video-container" id="videoWrapper">
-        <video id="companyVideo" controls preload="metadata">
+        <!-- 修复后的video标签 -->
+        <video 
+            id="companyVideo" 
+            controls 
+            preload="metadata"
+            playsinline
+            muted
+            crossorigin="anonymous"
+        >
             <source src="./img/video.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
@@ -929,78 +930,57 @@
         
         const videoWrapper = document.getElementById('videoWrapper');
         const videoCover = document.getElementById('videoCover');
-        const videoCoverImg = document.getElementById('videoCoverImg');
         const playBtn = document.getElementById('playBtn');
         const companyVideo = document.getElementById('companyVideo');
-        let isFirstClick = true;
 
-        function setVideoCoverFromFirstFrame() {
-            companyVideo.addEventListener('loadeddata', () => {
-                companyVideo.pause();
-                
-                const canvas = document.createElement('canvas');
-                canvas.width = companyVideo.videoWidth;
-                canvas.height = companyVideo.videoHeight;
-                const ctx = canvas.getContext('2d');
-                
-                ctx.drawImage(companyVideo, 0, 0, canvas.width, canvas.height);
-                
-                const coverUrl = canvas.toDataURL('image/png');
-                videoCoverImg.src = coverUrl;
+        // 捕获视频加载错误，方便调试
+        companyVideo.addEventListener('error', (e) => {
+            console.error('视频加载失败：', e);
+        });
+
+        // 统一播放逻辑
+        function playVideo() {
+            videoCover.style.opacity = '0';
+            playBtn.style.opacity = '0';
+            setTimeout(() => {
+                videoCover.style.display = 'none';
+                playBtn.style.display = 'none';
+            }, 300);
+            companyVideo.play().catch(err => {
+                console.warn('浏览器阻止自动播放：', err);
             });
         }
 
-        setVideoCoverFromFirstFrame();
-
-        function handleVideoClick() {
-            if (isFirstClick) {
-                videoCover.style.opacity = '0';
-                playBtn.style.opacity = '0';
-                setTimeout(() => {
-                    videoCover.style.display = 'none';
-                    playBtn.style.display = 'none';
-                }, 300);
-
-                companyVideo.classList.add('active');
-                companyVideo.controls = true;
-                companyVideo.play().catch(err => {
-                    console.warn('自动播放被阻止:', err);
-                });
-                isFirstClick = false;
-            }
-        }
-
-        videoWrapper.addEventListener('click', handleVideoClick);
+        videoWrapper.addEventListener('click', playVideo);
         playBtn.addEventListener('click', (e) => {
             e.stopPropagation();
-            handleVideoClick();
+            playVideo();
         });
 
+        // 视频点击暂停/播放
         companyVideo.addEventListener('click', () => {
-            if (!isFirstClick) {
-                if (companyVideo.paused) {
-                    companyVideo.play();
-                } else {
-                    companyVideo.pause();
-                }
+            if (companyVideo.paused) {
+                companyVideo.play();
+            } else {
+                companyVideo.pause();
             }
         });
 
+        // 移动端菜单事件
         if (hamburgerBtn) hamburgerBtn.addEventListener('click', openMobileMenu);
         if (closeMobileMenu) closeMobileMenu.addEventListener('click', closeMobileMenuFn);
-
         if (mobileMenu) {
             mobileMenu.querySelectorAll('a').forEach(link => {
                 link.addEventListener('click', closeMobileMenuFn);
             });
         }
-
         if (mobileLangToggle) {
             mobileLangToggle.addEventListener('click', toggleLanguage);
         }
+        if (langToggleBtn) {
+            langToggleBtn.addEventListener('click', toggleLanguage);
+        }
     });
-
-    langToggleBtn.addEventListener('click', toggleLanguage);
 </script>
 </body>
 </html>

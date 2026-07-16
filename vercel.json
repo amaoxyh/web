@@ -5,5 +5,16 @@
       "destination": "/",
       "permanent": true
     }
+  ],
+  "headers": [
+    {
+      "source": "/img/(.*).mp4",
+      "headers": [
+        {"key": "Access-Control-Allow-Origin", "value": "*"},
+        {"key": "Access-Control-Allow-Methods", "value": "GET,OPTIONS"},
+        {"key": "Access-Control-Allow-Headers", "value": "Origin,Range"},
+        {"key": "Access-Control-Expose-Headers", "value": "Content-Range,Accept-Ranges"}
+      ]
+    }
   ]
 }
